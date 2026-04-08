@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String        @id @default(cuid())
+  email           String        @unique
+  name            String
+  phone           String
+  passwordHash    String
+  role            String        @default("STUDENT") // STUDENT, ADMIN, AGENT
+  isPmr           Boolean       @default(false)
+  pmrRequested    Boolean       @default(false)
+  pmrValidatedAt  DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  vehicles     Vehicle[]
+  reservations Reservation[]
+}
+
+model Vehicle {
+  id           String   @id @default(cuid())
+  licensePlate String   @unique
+  userId       String
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ParkingSpot {
+  id         String  @id @default(cuid())
+  spotNumber Int     @unique
+  type       String  @default("STANDARD") // STANDARD, PMR
+  isActive   Boolean @default(true)
+
+  reservations Reservation[]
+}
+
+model Reservation {
+  id        String   @id @default(cuid())
+  userId    String
+  spotId    String
+  date      String   // format YYYY-MM-DD
+  status    String   @default("CONFIRMED") // CONFIRMED, CANCELLED
+  createdAt DateTime @default(now())
+
+  user User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  spot ParkingSpot @relation(fields: [spotId], references: [id])
+
+  @@unique([spotId, date])
+  @@index([userId, date])
+  @@index([date, status])
+}

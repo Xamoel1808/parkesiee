@@ -1,0 +1,29 @@
+{
+  "name": "parking-esiee",
+  "version": "1.0.0",
+  "description": "Système de Gestion de Parking pour ESIEE-IT",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:push": "npx prisma db push",
+    "db:seed": "node prisma/seed.mjs",
+    "db:studio": "npx prisma studio",
+    "db:setup": "npx prisma db push && node prisma/seed.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.2",
+    "@types/react": "19.2.14",
+    "prisma": "^5.20.0",
+    "typescript": "6.0.2"
+  }
+}
