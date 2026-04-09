@@ -1,0 +1,2898 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:eec6cf63-65b9-469d-a995-fc420d0aa613",
+  "metadata": {
+    "timestamp": "2026-04-09T12:42:14.593Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "npm",
+          "version": "11.6.2"
+        },
+        {
+          "type": "application",
+          "name": "cyclonedx-npm",
+          "group": "@cyclonedx",
+          "version": "4.2.1",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-node-npm.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "10.0.0",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "parking-esiee",
+      "version": "1.0.0",
+      "bom-ref": "parking-esiee@1.0.0",
+      "description": "Système de Gestion de Parking pour ESIEE-IT",
+      "purl": "pkg:npm/parking-esiee@1.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": ""
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "client",
+      "group": "@prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/client@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "Prisma Client is an auto-generated, type-safe and modern JavaScript/TypeScript ORM for Node.js that's tailored to your data. Supports PostgreSQL, CockroachDB, MySQL, MariaDB, SQL Server, SQLite & MongoDB databases.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/client@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/client",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://www.prisma.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/client/-/client-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3344955dfc879d044404ac42832a3bb1f7eb2adb7013a47c3ccab7df4308505d294f08d484b6d6f38a450e57f4e81dbb5f2091fbe56d8ee8049c81ddaf4ed254"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/client"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "node",
+      "group": "@types",
+      "version": "25.5.2",
+      "bom-ref": "parking-esiee@1.0.0|@types/node@25.5.2",
+      "description": "TypeScript definitions for node",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/node@25.5.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/node",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@types/node/-/node-25.5.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b4ee1921128d0be303595e2a29565edd097fc284e79870ebe490fc508e619f6a7006b1c4c0e10c64aed694d6f944a07a128274da0c26412f4eae3b859d961da6"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/node"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "group": "@types",
+      "version": "19.2.14",
+      "bom-ref": "parking-esiee@1.0.0|@types/react@19.2.14",
+      "description": "TypeScript definitions for react",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/react@19.2.14",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/react",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@types/react/-/react-19.2.14.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8a57131ff52788290c76d7b192808dd1b23ba4c7090ef99014fbee3ef98469803f3527c54c081d5122c0a158da4499bbfba3ef70cfaad7360ec12e304d8305f7"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/react"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "bcryptjs",
+      "version": "2.4.3",
+      "bom-ref": "parking-esiee@1.0.0|bcryptjs@2.4.3",
+      "author": "Daniel Wirtz",
+      "description": "Optimized bcrypt in plain JavaScript with zero dependencies. Compatible to 'bcrypt'.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/bcryptjs@2.4.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/dcodeIO/bcrypt.js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/dcodeIO/bcrypt.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/dcodeIO/bcrypt.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/bcryptjs/-/bcryptjs-2.4.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "57f1f2fd7f55b7b7f705b3c9122f0175514c0721e2fa3357ad8916de1b9ac9b57f910d0a260d18e8f90431b9fecde4fe8be4a2299fc732a246208b782d90ea35"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/bcryptjs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jsonwebtoken",
+      "version": "9.0.3",
+      "bom-ref": "parking-esiee@1.0.0|jsonwebtoken@9.0.3",
+      "author": "auth0",
+      "description": "JSON Web Token implementation (symmetric and asymmetric)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jsonwebtoken@9.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/auth0/node-jsonwebtoken.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/auth0/node-jsonwebtoken#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/auth0/node-jsonwebtoken/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-9.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "313ff13f40abb9b15134b34abf12760587f2e776649befb96d7f5db6e3dba80790a5355ed0c4131616a8f3e0a9fff126269db8e31b7a0ebc3f1951060948f8d2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/jsonwebtoken"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "next",
+      "version": "14.2.35",
+      "bom-ref": "parking-esiee@1.0.0|next@14.2.35",
+      "description": "The React Framework",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/next@14.2.35",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vercel/next.js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://nextjs.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vercel/next.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/next/-/next-14.2.35.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2a161dd878edfced7fd5a6555f7742c065ccd5098e57878d33651369c2b9822a4374f37fa071caff8a151b2ed7f0631f3ccb144d41261a5b32d046356060248a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/next"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|prisma@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "Prisma is an open-source database toolkit. It includes a JavaScript/TypeScript ORM for Node.js, migrations and a modern GUI to view and edit the data in your database. You can use Prisma in new projects or add it to an existing one.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prisma@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/cli",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://www.prisma.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/prisma/-/prisma-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "beda635b75ee6024a732c3550632cc3644e3e8e65bb9d70f3d33d81ea5f40897e971d59c888d5d33cb87113c260f1c62a84c02204e96bd7b9c5947ad2607eefc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/prisma"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-dom",
+      "version": "18.3.1",
+      "bom-ref": "parking-esiee@1.0.0|react-dom@18.3.1",
+      "description": "React package for working with the DOM.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-dom@18.3.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/facebook/react.git#packages/react-dom",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://reactjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/facebook/react/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e66e2740aa7ead945bd3d2cd1f9f463380714e1f76e75ff295b2886e97bb4e91b17c9fbd92fe812e42c15c88e3b296e06e720136a948db7b519d3593d2c9d423"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/react-dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "version": "18.3.1",
+      "bom-ref": "parking-esiee@1.0.0|react@18.3.1",
+      "description": "React is a JavaScript library for building user interfaces.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react@18.3.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/facebook/react.git#packages/react",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://reactjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/facebook/react/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/react/-/react-18.3.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c12fa1020252851d0a844bcf240adfb8f54dd7e1f3d6dd18ea7e632eb1906e46f8bab80f13fd11bdefb590c075bffa16807826e1621c57e8bb176a53563fb689"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/react"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "version": "6.0.2",
+      "bom-ref": "parking-esiee@1.0.0|typescript@6.0.2",
+      "author": "Microsoft Corp.",
+      "description": "TypeScript is a language for application scale JavaScript development",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typescript@6.0.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/TypeScript.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6c674022b674c22183a3997c73ef875ad6da3425934b8513bfb45a4c7fd38552208e4bde26df379bbe1b04730992e09bb2563c8b180b05564920e8909504e37d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/typescript"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "undici-types",
+      "version": "7.18.2",
+      "bom-ref": "parking-esiee@1.0.0|undici-types@7.18.2",
+      "description": "A stand-alone types package for Undici",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici-types@7.18.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodejs/undici.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://undici.nodejs.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/undici/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/undici-types/-/undici-types-7.18.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "02cb82cdf7c61c9c9b49a46b9abe5e1ebf359b0254de48f0e8cfaea6b5af09788d78df52386c10dc99fc8dbf26dd9ea2cd58249e7d51d054c21003f642b2d8ff"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/undici-types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.3",
+      "bom-ref": "parking-esiee@1.0.0|csstype@3.2.3",
+      "author": "Fredrik Nicol",
+      "description": "Strict TypeScript and Flow types for style based on MDN data",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/frenic/csstype.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/frenic/csstype#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/frenic/csstype/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cf51c629c632db103c00641fc2b9f43c0cbe3c1ed7fc64a3dd45495bda8aca7e37c566be825e675e6538aaa2cc4735952c50bc2aeb145fc4ffd240a2398a4021"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/csstype"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jws",
+      "version": "4.0.1",
+      "bom-ref": "parking-esiee@1.0.0|jws@4.0.1",
+      "author": "Brian J Brennan",
+      "description": "Implementation of JSON Web Signatures",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jws@4.0.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/brianloveswords/node-jws.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/brianloveswords/node-jws#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/brianloveswords/node-jws/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/jws/-/jws-4.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "10a23f33fcaa3e7706514878e31cf43f14a275716bffeaf4a40ef4fa0218863bfe7adef2c4cfacdbd63e5460e4a2f4687d07a6d1fb3b52f7f8f9898077245db8"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/jws"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.includes",
+      "version": "4.3.0",
+      "bom-ref": "parking-esiee@1.0.0|lodash.includes@4.3.0",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.includes` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.includes@4.3.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.includes/-/lodash.includes-4.3.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5b7071ea67644531ad9492123af543fe56ea8d394f3d40d33279576459d5c22f4d289ead88093a2d5765859326d7b5598acaa129c833a4ee56cfdd4f0ade5bd3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.includes"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.isboolean",
+      "version": "3.0.3",
+      "bom-ref": "parking-esiee@1.0.0|lodash.isboolean@3.0.3",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.isBoolean` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.isboolean@3.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "073e66ba9cb64956cf1d4441f7c540730f9a1e1e2f455e483cd8482d40ac3b3466b13992435ee322eaa8a407a7b56a1e864b7119df5efe16c85eaf7cd3fd5026"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.isboolean"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.isinteger",
+      "version": "4.0.4",
+      "bom-ref": "parking-esiee@1.0.0|lodash.isinteger@4.0.4",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.isInteger` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.isinteger@4.0.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "0c1c2d11637671a1d0f7f8a688d784039cacd49a11b517d8ddded5f7092ab5bc9c9c0993bd14666c72835786b411873aefcfdd89ad23aed7b8b6363054169950"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.isinteger"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.isnumber",
+      "version": "3.0.3",
+      "bom-ref": "parking-esiee@1.0.0|lodash.isnumber@3.0.3",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.isNumber` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.isnumber@3.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "418ab3a5fc0edff0967f75cff99fad910b1f68b2ff1275255d6564224e4550f738b017537a112a64e36ec91b763faecf5c093e35799305c73def3c3db75150af"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.isnumber"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.isplainobject",
+      "version": "4.0.6",
+      "bom-ref": "parking-esiee@1.0.0|lodash.isplainobject@4.0.6",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.isPlainObject` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.isplainobject@4.0.6",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a125f3696ca908c1e43c2dcdbc111a3c77f42ac0399af3eb38f810583b1b83c9fba2b676f743340660bf8e0459e2f709e834c0863aec49881db16fc5f8c14e04"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.isplainobject"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.isstring",
+      "version": "4.0.1",
+      "bom-ref": "parking-esiee@1.0.0|lodash.isstring@4.0.1",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.isString` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.isstring@4.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.isstring/-/lodash.isstring-4.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d302717f11f5c203b71ab6ee3fe7534e4ee8a7ee8be354025db188344983fa7cbf1bf782a86cf1c82b21ef5e7d4be9a00c37286ab9c1c3a3c2d4f4b9fb050683"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.isstring"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash.once",
+      "version": "4.1.1",
+      "bom-ref": "parking-esiee@1.0.0|lodash.once@4.1.1",
+      "author": "John-David Dalton",
+      "description": "The lodash method `_.once` exported as a module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash.once@4.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "49be3ceda4ce0abf5dad054bf292313b356169f3a364df54539e2188df0f537b8089257b971d7260da5b3667b1d8f2ba752268353489514b304fae75cb0c3732"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash.once"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ms",
+      "version": "2.1.3",
+      "bom-ref": "parking-esiee@1.0.0|ms@2.1.3",
+      "description": "Tiny millisecond conversion utility",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ms@2.1.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vercel/ms.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/vercel/ms#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vercel/ms/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e85973b9b4cb646dc9d9afcd542025784863ceae68c601f268253dc985ef70bb2fa1568726afece715c8ebf5d73fab73ed1f7100eb479d23bfb57b45dd645394"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ms"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "semver",
+      "version": "7.7.4",
+      "bom-ref": "parking-esiee@1.0.0|semver@7.7.4",
+      "author": "GitHub Inc.",
+      "description": "The semantic version parser used by npm.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/semver@7.7.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/npm/node-semver.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/semver/-/semver-7.7.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "bc5282d8812d427561a53efc875629f30cf0adff0233e33328c1c62597c1b738593727111675ec1e4e84e53c4892432c80d4bb99d5f700607bc7640cd9d8b894"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/semver"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "env",
+      "group": "@next",
+      "version": "14.2.35",
+      "bom-ref": "parking-esiee@1.0.0|@next/env@14.2.35",
+      "author": "Next.js Team",
+      "description": "Next.js dotenv file loading",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40next/env@14.2.35",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vercel/next.js.git#packages/next-env",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vercel/next.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vercel/next.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@next/env/-/env-14.2.35.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "0ee86f0ad8f8b7d1b0af1f34766cf6178b7fcca43892d37c5ab3303ae5739097c18a5c00c06afabf5e8ce5e23cc82b99eb71fd4d3b84534f48bb61ea93314f55"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@next/env"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "swc-win32-x64-msvc",
+      "group": "@next",
+      "version": "14.2.33",
+      "bom-ref": "parking-esiee@1.0.0|@next/swc-win32-x64-msvc@14.2.33",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40next/swc-win32-x64-msvc@14.2.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vercel/next.js.git#packages/next-swc/crates/napi/npm/win32-x64-msvc",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vercel/next.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vercel/next.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.2.33.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9ce8df64ccbc07de0c762b2ecd9a3dff9ef1b8554b1c96838f97bfc6b76e269f42576fc7adfc53447d9f6f22def8af504f8d5604b51de225d7dd1ee3069d0452"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@next/swc-win32-x64-msvc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "helpers",
+      "group": "@swc",
+      "version": "0.5.5",
+      "bom-ref": "parking-esiee@1.0.0|@swc/helpers@0.5.5",
+      "author": "강동윤",
+      "description": "External helpers for the swc project.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40swc/helpers@0.5.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/swc-project/swc.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://swc.rs",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/swc-project/swc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "286631bc839771c78e01b124e1b8bf7552c42bdcfcb19d2e041dc89796f5ae17c2952a5c5f4c9f44ed0a99392a476727403ca6c0b07edb967233320283f726fc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@swc/helpers"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "busboy",
+      "version": "1.6.0",
+      "bom-ref": "parking-esiee@1.0.0|busboy@1.6.0",
+      "author": "Brian White",
+      "description": "A streaming parser for HTML form data for node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared",
+            "url": "http://github.com/mscdex/busboy/raw/master/LICENSE"
+          }
+        }
+      ],
+      "purl": "pkg:npm/busboy@1.6.0",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/mscdex/busboy.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mscdex/busboy#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mscdex/busboy/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/busboy/-/busboy-1.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f121506e0ff4850f71cb750d4c1d18127b0d05b59f85fed1b67ce92fb4e40624c145fad0f45c5c9f3ed526c95e269ca9eab54bbd78ae391aa39478b9abe3d8b8"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/busboy"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "caniuse-lite",
+      "version": "1.0.30001787",
+      "bom-ref": "parking-esiee@1.0.0|caniuse-lite@1.0.30001787",
+      "author": "Ben Briggs",
+      "description": "A smaller version of caniuse-db, with only the essentials!",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC-BY-4.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/caniuse-lite@1.0.30001787",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/browserslist/caniuse-lite.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/browserslist/caniuse-lite#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/browserslist/caniuse-lite/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001787.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "98d72b30df4a788ebcbbb9ae6a752911e8d22e084e2a556146a4bf65ad887b21a5949f48f68b46a51f60de7b30ee7e16dfbf1313f2f222d780d3efc53999b82a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/caniuse-lite"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "bom-ref": "parking-esiee@1.0.0|graceful-fs@4.2.11",
+      "description": "A drop-in replacement for fs, making various improvements.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/graceful-fs@4.2.11",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/isaacs/node-graceful-fs.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/isaacs/node-graceful-fs#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/isaacs/node-graceful-fs/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "45b279fe398570d342703579a3d7939c12c9fc7b33595d0fef76dcf857f89d2feb263f98692e881b288e2f45680585fe9755ab97793ade1fcaac7fa7849d17bd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/graceful-fs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "postcss",
+      "version": "8.4.31",
+      "bom-ref": "parking-esiee@1.0.0|postcss@8.4.31",
+      "author": "Andrey Sitnik",
+      "description": "Tool for transforming styles with JS plugins",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/postcss@8.4.31",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/postcss/postcss.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://postcss.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/postcss/postcss/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3d2d3c21ba226bd9adb3fdb2815dde2e96398219d471f2d5fc45d3396d44daa63124a186054b4d8cdefa1581e732cdfa4660119f8d5b0b40199a7fab474395a5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "styled-jsx",
+      "version": "5.1.1",
+      "bom-ref": "parking-esiee@1.0.0|styled-jsx@5.1.1",
+      "description": "Full CSS support for JSX without compromises",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/styled-jsx@5.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vercel/styled-jsx.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/vercel/styled-jsx#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vercel/styled-jsx/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a56eee0b597898167cba06e266b708b2222f571d549937f0ed4902dd49b6b667d4abd06193c222c8420f97a17c6a01e08f392eea3d3140465b7c0e6e4a049a0b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/styled-jsx"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "engines",
+      "group": "@prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/engines@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "This package is intended for Prisma's internal use",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/engines@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/engines",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/engines/-/engines-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "50d8dfb255a102dd3a9152f70a392e6291c05923ba2f89030953de815ea2b6dee70f591225abdddef8600048638252c924a11d27ba08a8327ec8793aa8ef203c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/engines"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "loose-envify",
+      "version": "1.4.0",
+      "bom-ref": "parking-esiee@1.0.0|loose-envify@1.4.0",
+      "author": "Andres Suarez",
+      "description": "Fast (and loose) selective `process.env` replacer using js-tokens instead of an AST",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/loose-envify@1.4.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/zertosh/loose-envify.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/zertosh/loose-envify",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/zertosh/loose-envify/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "972bb13c6aff59f86b95e9b608bfd472751cd7372a280226043cee918ed8e45ff242235d928ebe7d12debe5c351e03324b0edfeb5d54218e34f04b71452a0add"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/loose-envify"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "scheduler",
+      "version": "0.23.2",
+      "bom-ref": "parking-esiee@1.0.0|scheduler@0.23.2",
+      "description": "Cooperative scheduler for the browser environment.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/scheduler@0.23.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/facebook/react.git#packages/scheduler",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://reactjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/facebook/react/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "50e4a1b0fc33ecdacc52a851eadd215a315dbaf3b36edbfbb680c7d7f848adf44d2030679c159dd02c094c6bd3a67815966c0609d3fdfd997fb55ac3a9cb98cd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/scheduler"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jwa",
+      "version": "2.0.1",
+      "bom-ref": "parking-esiee@1.0.0|jwa@2.0.1",
+      "author": "Brian J. Brennan",
+      "description": "JWA implementation (supports all JWS algorithms)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jwa@2.0.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/brianloveswords/node-jwa.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/brianloveswords/node-jwa#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/brianloveswords/node-jwa/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/jwa/-/jwa-2.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "851174e1fa8920ff006db92ae4d28637405baf7271950faa859b9f5d5af40efba32b2f776426d764c1c32f810eb687526c25b13aa47c312d6d5c0e61c2a0970e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/jwa"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "safe-buffer",
+      "version": "5.2.1",
+      "bom-ref": "parking-esiee@1.0.0|safe-buffer@5.2.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Safer Node.js Buffer API",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/safe-buffer@5.2.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/safe-buffer.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/safe-buffer",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/safe-buffer/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ae9dd2a34eca71d9a629b1af81a37141226bedb1954959394bd12ad45fa9a5b468ef4f9879a0f1930e4377c34f37e183e9b8e7626d95b8fb825e6a6e62f9825d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/safe-buffer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "counter",
+      "group": "@swc",
+      "version": "0.1.3",
+      "bom-ref": "parking-esiee@1.0.0|@swc/counter@0.1.3",
+      "author": "강동윤",
+      "description": "Downloade counter for the swc project",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40swc/counter@0.1.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/swc-project/pkgs.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://swc.rs",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/swc-project/swc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@swc/counter/-/counter-0.1.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7b6051e25b09924465299fea0873f0f59692c5cd0c55477b82d6ed681eda32f1de25561ef2c381f0305990fd83b4848719292ef6c08ae93e9c9d8d02b57ace09"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@swc/counter"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.8.1",
+      "bom-ref": "parking-esiee@1.0.0|tslib@2.8.1",
+      "author": "Microsoft Corp.",
+      "description": "Runtime library for TypeScript helper functions",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.8.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/Microsoft/tslib.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a0916ef781d06fe29576e49440bef09e99aa9df98bb0e03f9c087a6fa107d30084a0ad3f98f79753a737c0a0d5f373243ae1cf447b525ca294f7d2016b34bfdb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tslib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "streamsearch",
+      "version": "1.1.0",
+      "bom-ref": "parking-esiee@1.0.0|streamsearch@1.1.0",
+      "author": "Brian White",
+      "description": "Streaming Boyer-Moore-Horspool searching for node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared",
+            "url": "http://github.com/mscdex/streamsearch/raw/master/LICENSE"
+          }
+        }
+      ],
+      "purl": "pkg:npm/streamsearch@1.1.0",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/mscdex/streamsearch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mscdex/streamsearch#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mscdex/streamsearch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/streamsearch/-/streamsearch-1.1.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "31c739c077a1a7d697cf56b1e9b654c98e5a7e0f6edabbf972a408de646b624182f2b5b684cd368d6bb08ed2fef8b4b9aa29d2ca18f641f2f236cb9cf95b04c6"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/streamsearch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.11",
+      "bom-ref": "parking-esiee@1.0.0|nanoid@3.3.11",
+      "author": "Andrey Sitnik",
+      "description": "A tiny (116 bytes), secure URL-friendly unique string ID generator",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nanoid@3.3.11",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/ai/nanoid.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/ai/nanoid#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ai/nanoid/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "37c4a97cf527529d5b2be3cc616f2a496765f54fb0c0d588e102b13980f2f4902ba3758c5fba7639e55117dbfedf8ee99da90d7af3e688784d999d876c503beb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nanoid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "bom-ref": "parking-esiee@1.0.0|picocolors@1.1.1",
+      "author": "Alexey Raspopov",
+      "description": "The tiniest and the fastest library for terminal output formatting with ANSI colors",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/alexeyraspopov/picocolors.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/alexeyraspopov/picocolors#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/alexeyraspopov/picocolors/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picocolors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "bom-ref": "parking-esiee@1.0.0|source-map-js@1.2.1",
+      "author": "Valentin 7rulnik Semirulnik",
+      "description": "Generates and consumes source maps",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/7rulnik/source-map-js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/7rulnik/source-map-js",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/7rulnik/source-map-js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "51758c2a12cec1529bef6f0852d40f5f17d853ebac7726ed52b2bff2e184f0240cbeb84ea70bf30c1c23d108522fb31073bbc8b084811bc550f3e203431a5f40"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/source-map-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "client-only",
+      "version": "0.0.1",
+      "bom-ref": "parking-esiee@1.0.0|client-only@0.0.1",
+      "description": "This is a marker package to indicate that a module can only be used in Client Components.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/client-only@0.0.1",
+      "externalReferences": [
+        {
+          "url": "https://reactjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/facebook/react/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "215dcebb48d233366b777a59e3c9cb913f4303b020d699cfcda8908695bb73745b72aab3bf3cd5bbe2fc81fa8ca7ff08336310b528aa682c6badc7eef08f2b30"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/client-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "debug",
+      "group": "@prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/debug@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "This package is intended for Prisma's internal use",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/debug@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/debug",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://www.prisma.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/debug/-/debug-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "014b78e2fdd825e8203b6654e4191723b33886ef41176cf31f6885d95e69c974ff9514f25a212567b22df9b447d44b21a0c4711e0a58838541eab08cfa61b98d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/debug"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "engines-version",
+      "group": "@prisma",
+      "version": "5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2",
+      "author": "Tim Suchanek",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/engines-wrapper.git#packages/engines-version",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/prisma/engines-wrapper#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/engines-wrapper/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d8f4e6c45476c875bf781deea96b5c81172001b1b5af01bd66b892bd0c3e9e76fb738b82af744070631bebfcdf13cf122a50b5363db3894bdcf7a677efd98781"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/engines-version"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fetch-engine",
+      "group": "@prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/fetch-engine@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "This package is intended for Prisma's internal use",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/fetch-engine@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/fetch-engine",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://www.prisma.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/fetch-engine/-/fetch-engine-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6e4ac3fcc7367d2be4401579129a05719f3b02f3a00f16c6f7de3cf1ae5c7b1a7909c9f2f9433a3007bf5059140b4c0b603f7ef5b79f34ea8688826186af876c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/fetch-engine"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "get-platform",
+      "group": "@prisma",
+      "version": "5.22.0",
+      "bom-ref": "parking-esiee@1.0.0|@prisma/get-platform@5.22.0",
+      "author": "Tim Suchanek",
+      "description": "This package is intended for Prisma's internal use",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40prisma/get-platform@5.22.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prisma/prisma.git#packages/get-platform",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://www.prisma.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prisma/prisma/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@prisma/get-platform/-/get-platform-5.22.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a4786941daf550f169b7ecc57e73dace1ba569960252a78870fa49562628abd47e0ffcb0e1f8c4f82b67b272b33d89b475d51b7975338c65462115603c30a4e1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@prisma/get-platform"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "js-tokens",
+      "version": "4.0.0",
+      "bom-ref": "parking-esiee@1.0.0|js-tokens@4.0.0",
+      "author": "Simon Lydell",
+      "description": "A regex that tokenizes JavaScript.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/js-tokens@4.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lydell/js-tokens.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/lydell/js-tokens#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lydell/js-tokens/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "45d2547e5704ddc5332a232a420b02bb4e853eef5474824ed1b7986cf84737893a6a9809b627dca02b53f5b7313a9601b690f690233a49bce0e026aeb16fcf29"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/js-tokens"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "buffer-equal-constant-time",
+      "version": "1.0.1",
+      "bom-ref": "parking-esiee@1.0.0|buffer-equal-constant-time@1.0.1",
+      "author": "GoInstant Inc., a salesforce.com company",
+      "description": "Constant-time comparison of Buffers",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/buffer-equal-constant-time@1.0.1",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/goinstant/buffer-equal-constant-time.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/goinstant/buffer-equal-constant-time#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/goinstant/buffer-equal-constant-time/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cd1a54883c1dff193a003a8f3004c6f2f73d54fae4724ed3d3b388c748278e62409c79d35573501b7bdfbd636e899224c2ef4aaca740d6224a7ec7d357113a34"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/buffer-equal-constant-time"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ecdsa-sig-formatter",
+      "version": "1.0.11",
+      "bom-ref": "parking-esiee@1.0.0|ecdsa-sig-formatter@1.0.11",
+      "author": "D2L Corporation",
+      "description": "Translate ECDSA signatures between ASN.1/DER and JOSE-style concatenation",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ecdsa-sig-formatter@1.0.11",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/Brightspace/node-ecdsa-sig-formatter.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/Brightspace/node-ecdsa-sig-formatter#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Brightspace/node-ecdsa-sig-formatter/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9da825dd162b6cdbfa91091e248a6de8d259cbcb702c1ff6bedcfac8df59e2f44a1cde3f41924811baa88402d283029d9e4b2e63793901d769e6583cb15a1571"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ecdsa-sig-formatter"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "parking-esiee@1.0.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@prisma/client@5.22.0",
+        "parking-esiee@1.0.0|@types/node@25.5.2",
+        "parking-esiee@1.0.0|@types/react@19.2.14",
+        "parking-esiee@1.0.0|bcryptjs@2.4.3",
+        "parking-esiee@1.0.0|jsonwebtoken@9.0.3",
+        "parking-esiee@1.0.0|next@14.2.35",
+        "parking-esiee@1.0.0|prisma@5.22.0",
+        "parking-esiee@1.0.0|react-dom@18.3.1",
+        "parking-esiee@1.0.0|react@18.3.1",
+        "parking-esiee@1.0.0|typescript@6.0.2"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/client@5.22.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|prisma@5.22.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@types/node@25.5.2",
+      "dependsOn": [
+        "parking-esiee@1.0.0|undici-types@7.18.2"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@types/react@19.2.14",
+      "dependsOn": [
+        "parking-esiee@1.0.0|csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|bcryptjs@2.4.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|jsonwebtoken@9.0.3",
+      "dependsOn": [
+        "parking-esiee@1.0.0|jws@4.0.1",
+        "parking-esiee@1.0.0|lodash.includes@4.3.0",
+        "parking-esiee@1.0.0|lodash.isboolean@3.0.3",
+        "parking-esiee@1.0.0|lodash.isinteger@4.0.4",
+        "parking-esiee@1.0.0|lodash.isnumber@3.0.3",
+        "parking-esiee@1.0.0|lodash.isplainobject@4.0.6",
+        "parking-esiee@1.0.0|lodash.isstring@4.0.1",
+        "parking-esiee@1.0.0|lodash.once@4.1.1",
+        "parking-esiee@1.0.0|ms@2.1.3",
+        "parking-esiee@1.0.0|semver@7.7.4"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|next@14.2.35",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@next/env@14.2.35",
+        "parking-esiee@1.0.0|@next/swc-win32-x64-msvc@14.2.33",
+        "parking-esiee@1.0.0|@swc/helpers@0.5.5",
+        "parking-esiee@1.0.0|busboy@1.6.0",
+        "parking-esiee@1.0.0|caniuse-lite@1.0.30001787",
+        "parking-esiee@1.0.0|graceful-fs@4.2.11",
+        "parking-esiee@1.0.0|postcss@8.4.31",
+        "parking-esiee@1.0.0|react-dom@18.3.1",
+        "parking-esiee@1.0.0|react@18.3.1",
+        "parking-esiee@1.0.0|styled-jsx@5.1.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|prisma@5.22.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@prisma/engines@5.22.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|react-dom@18.3.1",
+      "dependsOn": [
+        "parking-esiee@1.0.0|loose-envify@1.4.0",
+        "parking-esiee@1.0.0|react@18.3.1",
+        "parking-esiee@1.0.0|scheduler@0.23.2"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|react@18.3.1",
+      "dependsOn": [
+        "parking-esiee@1.0.0|loose-envify@1.4.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|typescript@6.0.2"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|undici-types@7.18.2"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|csstype@3.2.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|jws@4.0.1",
+      "dependsOn": [
+        "parking-esiee@1.0.0|jwa@2.0.1",
+        "parking-esiee@1.0.0|safe-buffer@5.2.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.includes@4.3.0"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.isboolean@3.0.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.isinteger@4.0.4"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.isnumber@3.0.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.isplainobject@4.0.6"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.isstring@4.0.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|lodash.once@4.1.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|ms@2.1.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|semver@7.7.4"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@next/env@14.2.35"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@next/swc-win32-x64-msvc@14.2.33"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@swc/helpers@0.5.5",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@swc/counter@0.1.3",
+        "parking-esiee@1.0.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|busboy@1.6.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|streamsearch@1.1.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|caniuse-lite@1.0.30001787"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|graceful-fs@4.2.11"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|postcss@8.4.31",
+      "dependsOn": [
+        "parking-esiee@1.0.0|nanoid@3.3.11",
+        "parking-esiee@1.0.0|picocolors@1.1.1",
+        "parking-esiee@1.0.0|source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|styled-jsx@5.1.1",
+      "dependsOn": [
+        "parking-esiee@1.0.0|client-only@0.0.1",
+        "parking-esiee@1.0.0|react@18.3.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/engines@5.22.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@prisma/debug@5.22.0",
+        "parking-esiee@1.0.0|@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2",
+        "parking-esiee@1.0.0|@prisma/fetch-engine@5.22.0",
+        "parking-esiee@1.0.0|@prisma/get-platform@5.22.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|loose-envify@1.4.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|js-tokens@4.0.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|scheduler@0.23.2",
+      "dependsOn": [
+        "parking-esiee@1.0.0|loose-envify@1.4.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|jwa@2.0.1",
+      "dependsOn": [
+        "parking-esiee@1.0.0|buffer-equal-constant-time@1.0.1",
+        "parking-esiee@1.0.0|ecdsa-sig-formatter@1.0.11",
+        "parking-esiee@1.0.0|safe-buffer@5.2.1"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|safe-buffer@5.2.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@swc/counter@0.1.3"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|tslib@2.8.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|streamsearch@1.1.0"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|nanoid@3.3.11"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|picocolors@1.1.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|source-map-js@1.2.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|client-only@0.0.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/debug@5.22.0"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/fetch-engine@5.22.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@prisma/debug@5.22.0",
+        "parking-esiee@1.0.0|@prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2",
+        "parking-esiee@1.0.0|@prisma/get-platform@5.22.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|@prisma/get-platform@5.22.0",
+      "dependsOn": [
+        "parking-esiee@1.0.0|@prisma/debug@5.22.0"
+      ]
+    },
+    {
+      "ref": "parking-esiee@1.0.0|js-tokens@4.0.0"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|buffer-equal-constant-time@1.0.1"
+    },
+    {
+      "ref": "parking-esiee@1.0.0|ecdsa-sig-formatter@1.0.11",
+      "dependsOn": [
+        "parking-esiee@1.0.0|safe-buffer@5.2.1"
+      ]
+    }
+  ]
+}
