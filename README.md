@@ -1,67 +1,73 @@
-# ParkESIEE - Système de Gestion de Parking (MVP)
+# ParkESIEE - Système de Gestion de Parking
 
-ParkESIEE est une application de gestion des places de parking spécialement conçue pour les étudiants. Elle permet la réservation de places standards et PMR, en appliquant des règles d'équité strictes (rotation, fenêtres de réservation limitées).
+ParkESIEE est une application web de gestion de réservation de places de parking pour ESIEE-IT. Elle couvre l'inscription, la connexion, la réservation de places standards et PMR, les flux agent et admin, l'export ICS et la gestion des no-show.
 
-## 📚 Documentation Complète
-- [Architecture & Flux de Données](docs/architecture.md)
-- [Diagramme de Séquence (Parcours Principal)](docs/sequence_diagram.md)
-- [Modèle de Domaine (Base de Données)](docs/domain_model.md)
-- [Contrat d'API (Endpoints)](docs/api_contract.md)
-- [Rôles & Permissions](docs/roles_permissions.md)
-- [Choix Techniques (US11)](docs/technical_choices.md)
-- [Journal des Décisions (ADR)](docs/decisions/)
-- [Stratégie Git & Commits](docs/git_strategy.md)
+## Documentation
+- [Architecture et flux de données](docs/architecture.md)
+- [Contrat d'API](docs/api_contract.md)
+- [Modèle de domaine](docs/domain_model.md)
+- [Rôles et permissions](docs/roles_permissions.md)
+- [Diagramme de séquence](docs/sequence_diagram.md)
+- [Choix techniques](docs/technical_choices.md)
+- [Stratégie Git](docs/git_strategy.md)
+- [Journal des décisions](docs/decisions/)
+- Swagger UI disponible sur `/api-docs`
 
-## 🛠️ Stack Technique
-- **Frontend** : React 18 / Next.js 14 (App Router)
-- **Backend** : Next.js API Routes (Node.js)
-- **Database** : SQLite embarqué
-- **ORM** : Prisma
-- **Authentification** : JWT maison (Stateless)
+## Stack technique
+- Next.js 14 / React 18
+- API Routes Next.js côté backend
+- Prisma avec SQLite local
+- JWT pour l'authentification
+- bcryptjs pour le hachage des mots de passe
+- swagger-ui-react pour la documentation API
 
-## 🚀 Guide d'Installation et d'Exploitation (US37)
+## Fonctionnalités principales
+- Inscription, connexion et profil utilisateur
+- Réservation et gestion de places standards et PMR
+- Consultation de la disponibilité des places
+- Vérification de plaque et traitement des no-show
+- Export ICS des réservations
+- Vues et outils dédiés à l'administration et aux agents
+
+## Installation locale
 
 ### Prérequis
-- Node.js (version >= 20 recommandée)
-- npm (version >= 9)
+- Node.js 20 ou plus recommandé
+- npm 9 ou plus
 
-### Étape 1 : Cloner et installer
+### 1. Installer les dépendances
 ```bash
-git clone <repo-url>
-cd parkesiee
 npm install
 ```
 
-### Étape 2 : Configuration de l'environnement
-Un fichier `.env` est requis à la racine du projet. Copiez le modèle et ajustez si besoin :
-```bash
-cp .env.example .env
+### 2. Configurer l'environnement
+Créer un fichier `.env` à la racine du projet avec :
+```env
+DATABASE_URL="file:./dev.db"
 ```
-*(Variable requise : `DATABASE_URL="file:./dev.db"`)*
 
-### Étape 3 : Initialiser la Base de Données
-Synchronisez le schéma Prisma et peuplez la base avec les données de test (Étudiants, Admin, Places de parking) :
+### 3. Initialiser la base de données
 ```bash
 npm run db:setup
 ```
-*Note : Si cette commande échoue, vous pouvez faire manuellement : `npx prisma db push` suivi de `npx prisma db seed`.*
 
-### Étape 4 : Lancer le projet en Local
+### 4. Lancer l'application
 ```bash
 npm run dev
 ```
-L'application est accessible sur : `http://localhost:3000`
+L'application est accessible sur `http://localhost:3000`.
 
-### Accès de Test (Démonstration)
-- **Admin** : `admin@esiee-it.fr` / Mot de passe : `Admin123!`
-- **Étudiant Classique** : `jean.dupont@edu.esiee-it.fr` / Mot de passe : `Student123!`
-- **Étudiant PMR** : Dépend du script de *seed*, consultez la base via `npm run db:studio`.
+## Comptes de démonstration
+- Admin : `admin@esiee-it.fr` / `admin123`
+- Agent : `agent@esiee-it.fr` / `agent123`
+- Les étudiants peuvent créer leur compte depuis l'interface d'inscription.
 
-### Gestion et Exploitation
-- **Explorer la BD** : `npm run db:studio` pour ouvrir l'interface d'administration Prisma sur le port 5555.
-- **Journaux (Logs)** : Les logs applicatifs (dont la simulation de SMS) sont affichés dans la console où s'exécute `npm run dev`.
+## Exploitation
+- Prisma Studio : `npm run db:studio`
+- Docker Compose : `docker-compose up -d --build`
+- Les journaux applicatifs sont affichés dans la console du serveur
 
-## ⚠️ Limites Actuelles (Hors-Périmètre MVP)
-- Pas de déploiement Docker (*US35 / US36 prévus ultérieurement*).
-- Pas de pipeline CI valide configurée (*US31*).
-- Envoi de SMS simulés par _console.log_ uniquement.
+## Notes
+- SQLite reste le mode local par défaut.
+- L'API et l'interface Swagger sont synchronisées avec les routes applicatives.
+- Les sessions sont gérées par JWT.

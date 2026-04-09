@@ -168,6 +168,31 @@ export default function AgentLookup() {
                         {result.todayReservation.spotType}
                       </span>
                     </div>
+                    <div style={{ marginTop: '1rem', textAlign: 'right' }}>
+                      <button 
+                        className="btn btn-secondary"
+                        onClick={async () => {
+                          if (!confirm("Voulez-vous signaler cet étudiant absent (No-show) ? Une pénalité de 7 jours sera appliquée.")) return;
+                          try {
+                            const res = await apiFetch('/api/agent/no-show', {
+                              method: 'POST',
+                              body: JSON.stringify({ reservationId: result.todayReservation.id })
+                            });
+                            const data = await res.json();
+                            if (res.ok) {
+                              alert("Penalité appliquée avec succès.");
+                              setResult({ ...result, todayReservation: { ...result.todayReservation, valid: false } }); // Hide green bar since invalidated
+                            } else {
+                              alert("Erreur: " + data.error);
+                            }
+                          } catch (err) {
+                            alert("Erreur réseau");
+                          }
+                        }}
+                      >
+                        ⚠️ Signaler "No-Show" (Pénalité)
+                      </button>
+                    </div>
                   </>
                 ) : (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
