@@ -20,6 +20,7 @@ model User {
   isPmr           Boolean       @default(false)
   pmrRequested    Boolean       @default(false)
   pmrValidatedAt  DateTime?
+  penaltyUntil    DateTime?
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 
@@ -50,7 +51,7 @@ model Reservation {
   userId    String
   spotId    String
   date      String   // format YYYY-MM-DD
-  status    String   @default("CONFIRMED") // CONFIRMED, CANCELLED
+  status    String   @default("CONFIRMED") // CONFIRMED, CANCELLED, NO_SHOW, COMPLETED
   createdAt DateTime @default(now())
 
   user User        @relation(fields: [userId], references: [id], onDelete: Cascade)

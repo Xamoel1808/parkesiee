@@ -186,9 +186,29 @@ export default function StudentDashboard() {
                 </span>
               </div>
             </div>
-            <button className="btn btn-danger btn-sm" onClick={() => handleCancel(activeReservation.id)}>
-              ✕ Annuler
-            </button>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <button 
+                className="btn btn-primary btn-sm" 
+                onClick={async () => {
+                  const res = await apiFetch(`/api/reservations/ics?id=${activeReservation.id}`);
+                  if (!res.ok) return alert('Erreur lors de la génération du fichier ICS.');
+                  const blob = await res.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = `reservation-${activeReservation.date}.ics`;
+                  document.body.appendChild(a);
+                  a.click();
+                  a.remove();
+                  window.URL.revokeObjectURL(url);
+                }}
+              >
+                📅 Exporter ICS
+              </button>
+              <button className="btn btn-danger btn-sm" onClick={() => handleCancel(activeReservation.id)}>
+                ✕ Annuler
+              </button>
+            </div>
           </div>
         </div>
       )}
