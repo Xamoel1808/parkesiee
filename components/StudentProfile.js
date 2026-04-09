@@ -10,6 +10,8 @@ export default function StudentProfile() {
   const [message, setMessage] = useState(null);
   const [saving, setSaving] = useState(false);
   const [requestingPmr, setRequestingPmr] = useState(false);
+  const [addingVehicle, setAddingVehicle] = useState(false);
+  const [newPlate, setNewPlate] = useState('');
 
   const handleSave = async () => {
     setSaving(true);
@@ -49,6 +51,29 @@ export default function StudentProfile() {
       setMessage({ type: 'error', text: 'Erreur de connexion.' });
     }
     setRequestingPmr(false);
+  };
+
+  const handleAddVehicle = async () => {
+    if (!newPlate.trim()) return;
+    setAddingVehicle(true);
+    setMessage(null);
+    try {
+      const res = await apiFetch('/api/users/vehicles', {
+        method: 'POST',
+        body: JSON.stringify({ licensePlate: newPlate }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage({ type: 'success', text: data.message });
+        setNewPlate('');
+        refreshUser();
+      } else {
+        setMessage({ type: 'error', text: data.error });
+      }
+    } catch {
+      setMessage({ type: 'error', text: 'Erreur de connexion.' });
+    }
+    setAddingVehicle(false);
   };
 
   return (
@@ -129,7 +154,7 @@ export default function StudentProfile() {
         {/* Vehicle */}
         <div className="card">
           <div className="card-header">
-            <div className="card-title">🚗 Mon véhicule</div>
+            <div className="card-title">🚗 Mes véhicules</div>
           </div>
           {user.vehicles?.length > 0 ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -159,10 +184,32 @@ export default function StudentProfile() {
               ))}
             </div>
           ) : (
-            <div className="empty-state">
+            <div className="empty-state" style={{ marginBottom: '1rem' }}>
               <p>Aucun véhicule enregistré</p>
             </div>
           )}
+
+          <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
+            <div className="form-group" style={{ marginBottom: '0.5rem' }}>
+              <label className="form-label" style={{ fontSize: '0.9rem' }}>Ajouter une nouvelle plaque</label>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <input
+                  className="form-input"
+                  style={{ flex: 1 }}
+                  placeholder="Ex: AB-123-CD"
+                  value={newPlate}
+                  onChange={(e) => setNewPlate(e.target.value)}
+                />
+                <button
+                  className="btn btn-primary"
+                  onClick={handleAddVehicle}
+                  disabled={addingVehicle || !newPlate.trim()}
+                >
+                  {addingVehicle ? <span className="spinner"></span> : 'Ajouter'}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
