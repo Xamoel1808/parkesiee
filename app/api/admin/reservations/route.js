@@ -19,8 +19,7 @@ export async function GET(request) {
     include: {
       spot: true,
       user: {
-        select: { name: true, email: true, phone: true, isPmr: true },
-        include: { vehicles: true },
+        select: { name: true, email: true, phone: true, isPmr: true, vehicles: true },
       },
     },
     orderBy: { spot: { spotNumber: 'asc' } },
