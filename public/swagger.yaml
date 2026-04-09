@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  title: EduVibe Parking API (ParkESIEE)
+  description: API for managing student parking reservations at ESIEE-IT.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+    description: Local development server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        isPmr:
+          type: boolean
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        status:
+          type: string
+        spot:
+          type: object
+          properties:
+            spotNumber:
+              type: integer
+            type:
+              type: string
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        licensePlate:
+          type: string
+security:
+  - bearerAuth: []
+paths:
+  /auth/login:
+    post:
+      summary: Login a user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid credentials
+  /auth/register:
+    post:
+      summary: Register a new user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+                isPmr:
+                  type: boolean
+      responses:
+        '201':
+          description: Successful registration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Registration error (e.g. email already exists)
+  /reservations/me:
+    get:
+      summary: Get current user's reservations
+      responses:
+        '200':
+          description: User reservations retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reservations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Reservation'
+        '401':
+          description: Unauthorized
+  /reservations:
+    post:
+      summary: Create a new reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Reservation created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  reservation:
+                    $ref: '#/components/schemas/Reservation'
+        '400':
+          description: Bad Request (Invalid date, past date)
+        '409':
+          description: Conflict (Rotation limit reached, already has active reservation)
+  /reservations/{id}:
+    delete:
+      summary: Cancel a reservation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Reservation ID
+      responses:
+        '200':
+          description: Reservation cancelled
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        '404':
+          description: Reservation not found
+  /users/me/vehicles:
+    get:
+      summary: Get user's vehicles
+      responses:
+        '200':
+          description: User vehicles retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vehicles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vehicle'
+    post:
+      summary: Add a vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                licensePlate:
+                  type: string
+      responses:
+        '201':
+          description: Vehicle added
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vehicle:
+                    $ref: '#/components/schemas/Vehicle'
+  /admin/reservations:
+    get:
+      summary: Get all reservations (Admin only)
+      responses:
+        '200':
+          description: All reservations retrieved
+        '403':
+          description: Forbidden (Not an admin)
