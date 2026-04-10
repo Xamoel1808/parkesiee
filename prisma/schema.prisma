@@ -37,6 +37,16 @@ model Vehicle {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model ParkingClosure {
+  id        String   @id @default(cuid())
+  startDate String   // format YYYY-MM-DD
+  endDate   String   // format YYYY-MM-DD
+  reason    String
+  createdAt DateTime @default(now())
+
+  @@index([startDate, endDate])
+}
+
 model ParkingSpot {
   id         String  @id @default(cuid())
   spotNumber Int     @unique
