@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 function uniqueSuffix() {
   return `${Date.now()}${Math.floor(Math.random() * 1000)}`;
