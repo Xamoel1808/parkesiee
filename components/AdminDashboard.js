@@ -20,6 +20,11 @@ export default function AdminDashboard() {
   const [closureForm, setClosureForm] = useState({ startDate: '', endDate: '', reason: '', notifyUsers: true });
   const [savingClosure, setSavingClosure] = useState(false);
 
+  // All Users state
+  const [allUsers, setAllUsers] = useState([]);
+  const [loadingUsers, setLoadingUsers] = useState(false);
+  const [searchUser, setSearchUser] = useState('');
+
   const todayStr = () => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -31,6 +36,7 @@ export default function AdminDashboard() {
     loadReservations(today);
     loadPmrRequests();
     loadClosures();
+    loadAllUsers();
   }, []);
 
   const loadReservations = async (d) => {
@@ -64,16 +70,34 @@ export default function AdminDashboard() {
     setLoadingClosures(false);
   };
 
-  const handlePmrAction = async (userId, action, userName) => {
-    const verb = action === 'approve' ? 'approuver' : 'rejeter';
-    if (!confirm(`Êtes-vous sûr de vouloir ${verb} la demande PMR de ${userName} ?`)) return;
+  const loadAllUsers = async () => {
+    setLoadingUsers(true);
+    try {
+      const res = await apiFetch('/api/admin/users');
+      if (res.ok) { const data = await res.json(); setAllUsers(data.users); }
+    } catch {}
+    setLoadingUsers(false);
+  };
+
+  const handleUserAction = async (userId, action, userName) => {
+    let verb = 'traiter';
+    if (action === 'approve') verb = 'approuver la demande PMR de';
+    if (action === 'reject') verb = 'rejeter la demande PMR de';
+    if (action === 'ban') verb = 'bloquer (blacklist)';
+    if (action === 'pardon') verb = 'débloquer';
+
+    if (!confirm(`Êtes-vous sûr de vouloir ${verb} ${userName} ?`)) return;
     try {
       const res = await apiFetch('/api/admin/users', {
         method: 'PUT',
         body: JSON.stringify({ userId, action }),
       });
       const data = await res.json();
-      if (res.ok) { setMessage({ type: 'success', text: data.message }); loadPmrRequests(); }
+      if (res.ok) { 
+        setMessage({ type: 'success', text: data.message }); 
+        loadPmrRequests();
+        loadAllUsers();
+      }
       else setMessage({ type: 'error', text: data.error });
     } catch {
       setMessage({ type: 'error', text: 'Erreur de connexion.' });
@@ -185,6 +209,12 @@ export default function AdminDashboard() {
               {closures.filter(c => c.endDate >= todayStr()).length}
             </span>
           )}
+        </button>
+        <button
+          className={`btn ${tab === 'users' ? 'btn-primary' : 'btn-outline'}`}
+          onClick={() => setTab('users')}
+        >
+          👥 Tous les Étudiants
         </button>
       </div>
 
@@ -326,15 +356,93 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
-                    <button className="btn btn-success btn-sm" onClick={() => handlePmrAction(u.id, 'approve', u.name)}>
+                    <button className="btn btn-success btn-sm" onClick={() => handleUserAction(u.id, 'approve', u.name)}>
                       ✓ Approuver
                     </button>
-                    <button className="btn btn-danger btn-sm" onClick={() => handlePmrAction(u.id, 'reject', u.name)}>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleUserAction(u.id, 'reject', u.name)}>
                       ✕ Rejeter
                     </button>
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Users Tab - Blacklist Management */}
+      {tab === 'users' && (
+        <div className="card">
+          <div className="card-header" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+            <div className="card-title">👥 Gestion et Blacklist des Étudiants</div>
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Rechercher par nom, email ou plaque..."
+              value={searchUser}
+              onChange={(e) => setSearchUser(e.target.value)}
+              style={{ maxWidth: '400px' }}
+            />
+          </div>
+          {loadingUsers ? (
+            <div style={{ textAlign: 'center', padding: '2rem' }}><div className="spinner"></div></div>
+          ) : (
+            <div className="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Étudiant</th>
+                    <th>Plaque(s)</th>
+                    <th>Rôle & PMR</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allUsers
+                    .filter((u) => 
+                      u.name.toLowerCase().includes(searchUser.toLowerCase()) || 
+                      u.email.toLowerCase().includes(searchUser.toLowerCase()) ||
+                      u.vehicles.some(v => v.toLowerCase().includes(searchUser.toLowerCase()))
+                    )
+                    .map((u) => {
+                      const isBanned = u.penaltyUntil && new Date(u.penaltyUntil) > new Date();
+                      
+                      return (
+                      <tr key={u.id} style={{ opacity: isBanned ? 0.7 : 1 }}>
+                        <td>
+                          <strong>{u.name}</strong><br/>
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{u.email}</span>
+                        </td>
+                        <td style={{ fontFamily: 'monospace' }}>
+                          {u.vehicles.length > 0 ? u.vehicles.join(', ') : '—'}
+                        </td>
+                        <td>
+                          <span className="badge badge-standard" style={{ marginRight: 4 }}>{u.role}</span>
+                          {u.isPmr && <span className="badge badge-pmr">PMR</span>}
+                        </td>
+                        <td>
+                          {isBanned ? (
+                            <span className="badge" style={{ background: 'var(--accent-rose)', color: '#fff' }}>⛔ Bloqué</span>
+                          ) : (
+                            <span className="badge" style={{ background: 'var(--accent-emerald)', color: '#fff' }}>✅ Actif</span>
+                          )}
+                        </td>
+                        <td>
+                          {isBanned ? (
+                            <button className="btn btn-outline btn-sm" onClick={() => handleUserAction(u.id, 'pardon', u.name)}>
+                              🔓 Débloquer
+                            </button>
+                          ) : (
+                            <button className="btn btn-danger btn-sm" onClick={() => handleUserAction(u.id, 'ban', u.name)}>
+                              ⛔ Bloquer
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    )})}
+                </tbody>
+              </table>
             </div>
           )}
         </div>

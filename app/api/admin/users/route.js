@@ -28,6 +28,7 @@ export async function GET(request) {
       isPmr: u.isPmr,
       pmrRequested: u.pmrRequested,
       pmrValidatedAt: u.pmrValidatedAt,
+      penaltyUntil: u.penaltyUntil,
       vehicles: u.vehicles.map((v) => v.licensePlate),
       createdAt: u.createdAt,
     })),
@@ -67,7 +68,19 @@ export async function PUT(request) {
       data: { pmrRequested: false },
     });
     return NextResponse.json({ message: `Demande PMR rejetée pour ${user.name}.` });
+  } else if (action === 'ban') {
+    await prisma.user.update({
+      where: { id: userId },
+      data: { penaltyUntil: new Date('2099-12-31T23:59:59Z') },
+    });
+    return NextResponse.json({ message: `Utilisateur ${user.name} bloqué définitivement.` });
+  } else if (action === 'pardon') {
+    await prisma.user.update({
+      where: { id: userId },
+      data: { penaltyUntil: null },
+    });
+    return NextResponse.json({ message: `Sanction levée pour ${user.name}.` });
   }
 
-  return NextResponse.json({ error: "Action invalide. Utilisez 'approve' ou 'reject'." }, { status: 400 });
+  return NextResponse.json({ error: "Action invalide. Utilisez 'approve', 'reject', 'ban' ou 'pardon'." }, { status: 400 });
 }
