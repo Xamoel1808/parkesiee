@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 
-export default function RegisterPage({ onSwitch }) {
+export default function RegisterPage({ onSwitch, onBack }) {
   const { register } = useAuth();
   const [form, setForm] = useState({
     name: '',
@@ -168,6 +168,15 @@ export default function RegisterPage({ onSwitch }) {
           <a href="#" onClick={(e) => { e.preventDefault(); onSwitch(); }}>
             Se connecter
           </a>
+          {onBack && (
+            <>
+              {' '}
+              ·{' '}
+              <a href="#" onClick={(e) => { e.preventDefault(); onBack(); }}>
+                Retour a la presentation
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

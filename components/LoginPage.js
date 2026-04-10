@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 
-export default function LoginPage({ onSwitch }) {
+export default function LoginPage({ onSwitch, onBack }) {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -83,6 +83,15 @@ export default function LoginPage({ onSwitch }) {
           <a href="#" onClick={(e) => { e.preventDefault(); onSwitch(); }}>
             Créer un compte
           </a>
+          {onBack && (
+            <>
+              {' '}
+              ·{' '}
+              <a href="#" onClick={(e) => { e.preventDefault(); onBack(); }}>
+                Retour a la presentation
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useAuth } from '@/lib/AuthContext';
 import { useState } from 'react';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+import LandingPage from './LandingPage';
 import StudentDashboard from './StudentDashboard';
 import StudentProfile from './StudentProfile';
 import AdminDashboard from './AdminDashboard';
@@ -13,7 +14,7 @@ import Navbar from './Navbar';
 export default function AppRouter() {
   const { user, loading } = useAuth();
   const [page, setPage] = useState('dashboard');
-  const [authMode, setAuthMode] = useState('login'); // 'login' | 'register'
+  const [authMode, setAuthMode] = useState('landing'); // 'landing' | 'login' | 'register'
 
   if (loading) {
     return (
@@ -26,10 +27,29 @@ export default function AppRouter() {
 
   // Not logged in
   if (!user) {
-    if (authMode === 'register') {
-      return <RegisterPage onSwitch={() => setAuthMode('login')} />;
+    if (authMode === 'landing') {
+      return (
+        <LandingPage
+          onLogin={() => setAuthMode('login')}
+          onRegister={() => setAuthMode('register')}
+        />
+      );
     }
-    return <LoginPage onSwitch={() => setAuthMode('register')} />;
+
+    if (authMode === 'register') {
+      return (
+        <RegisterPage
+          onSwitch={() => setAuthMode('login')}
+          onBack={() => setAuthMode('landing')}
+        />
+      );
+    }
+    return (
+      <LoginPage
+        onSwitch={() => setAuthMode('register')}
+        onBack={() => setAuthMode('landing')}
+      />
+    );
   }
 
   // Logged in — render app shell
