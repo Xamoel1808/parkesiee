@@ -10,6 +10,7 @@ import StudentProfile from './StudentProfile';
 import AdminDashboard from './AdminDashboard';
 import AgentLookup from './AgentLookup';
 import Navbar from './Navbar';
+import ReglementPage from './ReglementPage';
 
 export default function AppRouter() {
   const { user, loading } = useAuth();
@@ -58,18 +59,21 @@ export default function AppRouter() {
       switch (page) {
         case 'lookup': return <AgentLookup />;
         case 'profile': return <StudentProfile />;
+        case 'reglement': return <ReglementPage />;
         default: return <AdminDashboard />;
       }
     }
     if (user.role === 'AGENT') {
       switch (page) {
         case 'profile': return <StudentProfile />;
+        case 'reglement': return <ReglementPage />;
         default: return <AgentLookup />;
       }
     }
     // STUDENT
     switch (page) {
       case 'profile': return <StudentProfile />;
+      case 'reglement': return <ReglementPage />;
       default: return <StudentDashboard />;
     }
   };
