@@ -135,7 +135,29 @@ export default function StudentDashboard() {
         <div className="stat-card">
           <div className="stat-icon blue">🚗</div>
           <div className="stat-info">
-            <h3>{user.vehicles?.[0]?.licensePlate || '—'}</h3>
+            {user?.vehicles?.length > 1 ? (
+              <select 
+                defaultValue={user.vehicles[0].id}
+                style={{ 
+                  fontSize: '1.1rem', 
+                  fontWeight: 'bold', 
+                  border: '1px solid var(--border-color)', 
+                  borderRadius: '6px',
+                  background: 'var(--bg-secondary)', 
+                  color: 'var(--text-primary)',
+                  padding: '4px 8px',
+                  marginBottom: '4px',
+                  width: '100%',
+                  cursor: 'pointer'
+                }}
+              >
+                {user.vehicles.map(v => (
+                  <option key={v.id} value={v.id}>{v.licensePlate}</option>
+                ))}
+              </select>
+            ) : (
+              <h3>{user?.vehicles?.[0]?.licensePlate || '—'}</h3>
+            )}
             <p>Mon véhicule</p>
           </div>
         </div>
