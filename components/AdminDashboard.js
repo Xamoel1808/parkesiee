@@ -76,6 +76,12 @@ export default function AdminDashboard() {
     setLoadingClosures(false);
   };
 
+  const loadAllUsers = async () => {
+    setLoadingUsers(true);
+    try {
+      const res = await apiFetch('/api/admin/users');
+      if (res.ok) { const data = await res.json(); setAllUsers(data.users); }
+    } catch {}
     setLoadingUsers(false);
   };
 
