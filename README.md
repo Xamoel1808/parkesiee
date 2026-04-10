@@ -8,6 +8,11 @@ ParkESIEE est une application web de gestion de réservation de places de parkin
 - [UI spec](docs/ui-spec.md)
 - [Accessibility checks](docs/accessibility-checks.md)
 - [Edge cases](docs/edge-cases.md)
+- [CI/CD](docs/ci-cd.md)
+- [Security analysis](docs/security-analysis.md)
+- [Demo release plan](docs/demo-release.md)
+- [Backlog arbitrages](docs/backlog-arbitrages.md)
+- [Soutenance proofs](docs/soutenance-proofs.md)
 - [Architecture et flux de données](docs/architecture.md)
 - [Contrat d'API](docs/api_contract.md)
 - [Modèle de domaine](docs/domain_model.md)
@@ -73,6 +78,11 @@ L'application est accessible sur `http://localhost:3000`.
 - Prisma Studio : `npm run db:studio`
 - Docker Compose : `docker-compose up -d --build`
 - Les journaux applicatifs sont affichés dans la console du serveur
+
+## Qualite continue
+- Pipeline locale: `npm run ci`
+- Pipeline GitHub: `.github/workflows/ci.yml`
+- SonarQube: `.github/workflows/sonar.yml` + `sonar-project.properties`
 
 ## Notes
 - SQLite reste le mode local par défaut.
