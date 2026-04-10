@@ -16,7 +16,7 @@ Ce document explicite les choix de priorisation et les renoncements majeurs.
 
 ## 4) Arbitrage qualite: tests metier d'abord, UI e2e ensuite
 - benefice: coeur fonctionnel securise rapidement
-- cout: couverture parcours ecran complet encore limitee
+- cout: couverture e2e initiale (parcours critique) encore a etendre aux parcours secondaires
 
 ## 5) Arbitrage delivery: docker compose local vs deploiement cloud public
 - benefice: demo reproductible et stable sur machine jury

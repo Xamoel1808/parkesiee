@@ -190,17 +190,26 @@ export default function StudentDashboard() {
               <button 
                 className="btn btn-primary btn-sm" 
                 onClick={async () => {
-                  const res = await apiFetch(`/api/reservations/ics?id=${activeReservation.id}`);
-                  if (!res.ok) return alert('Erreur lors de la génération du fichier ICS.');
-                  const blob = await res.blob();
-                  const url = window.URL.createObjectURL(blob);
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = `reservation-${activeReservation.date}.ics`;
-                  document.body.appendChild(a);
-                  a.click();
-                  a.remove();
-                  window.URL.revokeObjectURL(url);
+                  try {
+                    const res = await apiFetch(`/api/reservations/ics?id=${activeReservation.id}`);
+                    if (!res.ok) {
+                      setMessage({ type: 'error', text: 'Erreur lors de la génération du fichier ICS.' });
+                      return;
+                    }
+
+                    const blob = await res.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `reservation-${activeReservation.date}.ics`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                    setMessage({ type: 'success', text: 'Fichier ICS généré et téléchargé.' });
+                  } catch {
+                    setMessage({ type: 'error', text: 'Erreur de connexion lors de la génération du fichier ICS.' });
+                  }
                 }}
               >
                 📅 Exporter ICS

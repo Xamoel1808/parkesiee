@@ -15,6 +15,10 @@ Verifications executees:
 2. tests automatiques (`npm run test`)
 3. build de production (`npm run build`)
 
+Workflow E2E dedie: `.github/workflows/e2e.yml`
+- installe Chromium Playwright
+- execute le parcours navigateur critique (`npm run test:e2e`)
+
 En cas d'echec de tests ou de build, la pipeline echoue et la PR ne doit pas etre fusionnee.
 
 ## SonarQube
@@ -44,3 +48,4 @@ Si le Quality Gate echoue, la correction ou la justification doit etre faite ava
 - `npm run ci`
 - `npm test`
 - `npm run build`
+- `npm run test:e2e`

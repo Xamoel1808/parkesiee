@@ -9,6 +9,7 @@ export default function AgentLookup() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [actionMessage, setActionMessage] = useState(null); // { type, text }
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ export default function AgentLookup() {
 
     setLoading(true);
     setError('');
+    setActionMessage(null);
     setResult(null);
 
     try {
@@ -81,6 +83,13 @@ export default function AgentLookup() {
         <div className="alert alert-error" role="alert" aria-live="assertive">
           <span className="alert-icon">⚠️</span>
           <span>{error}</span>
+        </div>
+      )}
+
+      {actionMessage && (
+        <div className={`alert alert-${actionMessage.type}`} role="status" aria-live="polite">
+          <span className="alert-icon">{actionMessage.type === 'success' ? '✅' : '⚠️'}</span>
+          <span>{actionMessage.text}</span>
         </div>
       )}
 
@@ -173,6 +182,7 @@ export default function AgentLookup() {
                         className="btn btn-secondary"
                         onClick={async () => {
                           if (!confirm("Voulez-vous signaler cet étudiant absent (No-show) ? Une pénalité de 7 jours sera appliquée.")) return;
+                          setActionMessage(null);
                           try {
                             const res = await apiFetch('/api/agent/no-show', {
                               method: 'POST',
@@ -180,13 +190,13 @@ export default function AgentLookup() {
                             });
                             const data = await res.json();
                             if (res.ok) {
-                              alert("Penalité appliquée avec succès.");
+                              setActionMessage({ type: 'success', text: 'Pénalité appliquée avec succès.' });
                               setResult({ ...result, todayReservation: { ...result.todayReservation, valid: false } }); // Hide green bar since invalidated
                             } else {
-                              alert("Erreur: " + data.error);
+                              setActionMessage({ type: 'error', text: `Erreur: ${data.error}` });
                             }
-                          } catch (err) {
-                            alert("Erreur réseau");
+                          } catch {
+                            setActionMessage({ type: 'error', text: 'Erreur réseau.' });
                           }
                         }}
                       >

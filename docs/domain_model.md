@@ -1,16 +1,58 @@
 # Domain Model
 
-![Domain Model Diagram](/home/raiden/.gemini/antigravity/brain/3761987f-fd2e-4469-8154-6a1ecfb8fdb7/domain_model_diagram_1775741886999.png)
+```mermaid
+classDiagram
+	class User {
+		+id: String
+		+email: String
+		+name: String
+		+phone: String
+		+passwordHash: String
+		+role: STUDENT|ADMIN|AGENT
+		+isPmr: Boolean
+		+pmrRequested: Boolean
+		+pmrValidatedAt: DateTime?
+		+penaltyUntil: DateTime?
+		+createdAt: DateTime
+		+updatedAt: DateTime
+	}
 
-## Entities
-- **User**: `id`, `email`, `name`, `phone`, `passwordHash`, `role` (STUDENT/ADMIN/AGENT), `isPmr`, `pmrRequested`, `pmrValidatedAt`, `createdAt`, `updatedAt`
-- **Vehicle**: `id`, `licensePlate` (unique), `userId` (FK → User), `createdAt`
-- **ParkingSpot**: `id`, `spotNumber` (unique), `type` (STANDARD/PMR), `isActive`
-- **Reservation**: `id`, `userId` (FK → User), `spotId` (FK → ParkingSpot), `date` (YYYY‑MM‑DD), `status` (CONFIRMED/CANCELLED), `createdAt`
+	class Vehicle {
+		+id: String
+		+licensePlate: String
+		+userId: String
+		+createdAt: DateTime
+	}
 
-## Relationships
-- User **1‑* Vehicle** (a user can own multiple vehicles)
-- User **1‑* Reservation** (a user can have many reservations, but business rules limit active ones)
-- ParkingSpot **1‑* Reservation** (each spot can be reserved many times across dates)
+	class ParkingSpot {
+		+id: String
+		+spotNumber: Int
+		+type: STANDARD|PMR
+		+isActive: Boolean
+	}
 
-The Prisma schema (`prisma/schema.prisma`) mirrors this model exactly.
+	class Reservation {
+		+id: String
+		+userId: String
+		+spotId: String
+		+date: String
+		+status: CONFIRMED|CANCELLED|NO_SHOW
+		+createdAt: DateTime
+	}
+
+	User "1" --> "*" Vehicle : owns
+	User "1" --> "*" Reservation : books
+	ParkingSpot "1" --> "*" Reservation : assigned to
+```
+
+## Contraintes importantes
+
+- `User.email` unique
+- `Vehicle.licensePlate` unique
+- `ParkingSpot.spotNumber` unique
+- Regles metier appliquees par le moteur:
+	- une reservation active max par etudiant
+	- fenetre de reservation 24h/48h selon contexte PMR
+	- blocage no-show via `penaltyUntil`
+
+Le schema Prisma dans `prisma/schema.prisma` est la source de verite du modele.

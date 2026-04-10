@@ -14,6 +14,7 @@ Ce document trace les verifications d'accessibilite minimales realisees sur le M
 
 3. Feedback et etats
 - Les alertes de statut utilisent des motifs visuels stables (couleur + icone + texte).
+- Les notifications critiques sont exposees via regions ARIA (`role=alert` / `role=status`, `aria-live`) sur les ecrans majeurs.
 - Les etats vides critiques sont explicites (historique vide, aucune demande PMR, aucune reservation du jour).
 
 4. Coherence de navigation
@@ -24,10 +25,9 @@ Ce document trace les verifications d'accessibilite minimales realisees sur le M
 
 - Pas de test lecteur d'ecran complet sur l'ensemble des pages.
 - Pas de mesure automatisee de contraste (WCAG AA) sur toutes les combinaisons couleur/etat.
-- Certaines notifications reposent encore sur `alert()` navigateur pour le flux no-show.
 
 ## Actions d'amelioration prevues
 
 1. Ajouter une passe de tests Lighthouse/axe sur les ecrans critiques.
-2. Remplacer les `alert()` bloquantes par des composants ARIA live-region.
-3. Ajouter une checklist contraste et tailles minimales avant release finale.
+2. Ajouter une checklist contraste et tailles minimales avant release finale.
+3. Completer avec un audit lecteur d'ecran (NVDA/VoiceOver) sur les parcours login/reservation/no-show.

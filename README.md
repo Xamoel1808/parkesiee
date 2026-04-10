@@ -54,8 +54,10 @@ npm install
 Créer un fichier `.env` à la racine du projet avec :
 ```env
 DATABASE_URL="file:./dev.db"
+JWT_SECRET="change-this-dev-secret-please"
 ```
 `npm run db:setup` efface et reconstruit ensuite les donnees locales de demonstration.
+`JWT_SECRET` est obligatoire et doit contenir au moins 16 caracteres.
 
 ### 3. Initialiser la base de données
 ```bash
@@ -81,6 +83,7 @@ L'application est accessible sur `http://localhost:3000`.
 
 ## Qualite continue
 - Pipeline locale: `npm run ci`
+- E2E navigateur: `npm run test:e2e` (premiere execution: `npx playwright install chromium`)
 - Pipeline GitHub: `.github/workflows/ci.yml`
 - SonarQube: `.github/workflows/sonar.yml` + `sonar-project.properties`
 

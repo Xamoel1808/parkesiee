@@ -44,15 +44,18 @@ Ce document identifie les risques principaux du MVP, les zones sensibles revues 
 5. Verification des composants tiers
 - SBOM produite et audit npm present (avec risque Next.js documente)
 
+6. Secret JWT impose (fail fast)
+- le serveur refuse la creation/verification de token si `JWT_SECRET` est absent ou trop court
+- suppression du fallback hardcode pour eviter une configuration faible implicite
+
 ## 4) Limites connues (MVP)
 
-- secret JWT de dev encore present par defaut si variable absente
 - absence de rotation automatique des secrets et de mecanisme de refresh token
 - pas de WAF/rate limiting dedie sur les endpoints critiques
 - SonarQube depend de secrets CI et d'un serveur Sonar operationnel
 
 ## 5) Priorites post-MVP
 
-1. imposer `JWT_SECRET` en production (fail fast)
-2. ajouter rate limiting sur auth et reservation
-3. ajouter tests de securite automatiques (SAST/dependency scan) en CI
+1. ajouter rate limiting sur auth et reservation
+2. ajouter tests de securite automatiques (SAST/dependency scan) en CI
+3. mettre en place rotation des secrets + gestion refresh token

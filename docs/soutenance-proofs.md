@@ -17,6 +17,7 @@ Ce document mappe les preuves concretes vers les axes attendus en soutenance.
 - regles de code: `docs/code-quality-rules.md`
 - tests unitaires: `tests/reservationEngine.test.mjs`
 - tests integration: `tests/reservationFlow.integration.test.mjs`
+- tests e2e navigateur: `tests/e2e/mainFlow.spec.js`
 
 ## Securite
 - roles/erreurs: `docs/roles-et-erreurs.md`
@@ -37,6 +38,6 @@ Ce document mappe les preuves concretes vers les axes attendus en soutenance.
 
 - architecture orientee MVP et non haute charge
 - SonarQube necessite secrets + serveur configure
-- couverture tests priorisee sur coeur metier, pas encore e2e navigateur complet
+- couverture e2e concentree sur le parcours critique principal
 
 Ces limites sont documentees et assumees, avec une trajectoire d'amelioration explicite.

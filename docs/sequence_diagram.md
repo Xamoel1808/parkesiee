@@ -1,15 +1,36 @@
-# Main User Flow – Sequence Diagram
+# Main User Flow - Sequence Diagram
 
-![Sequence Diagram](/home/raiden/.gemini/antigravity/brain/3761987f-fd2e-4469-8154-6a1ecfb8fdb7/sequence_diagram_1775741856293.png)
+```mermaid
+sequenceDiagram
+   actor Student
+   participant UI as Next.js UI
+   participant API as API /api/reservations
+   participant Auth as Auth Layer
+   participant Engine as ReservationEngine
+   participant DB as Prisma + SQLite
 
-**Steps**
-1. Student opens the UI and logs in via `/api/auth/login`.
-2. UI calls `ReservationEngine.createReservation(userId, date)`.
-3. Engine checks:
-   - Max one active reservation.
-   - Reservation window (24 h / 48 h for PMR when PMR spots full).
-   - Consecutive‑day rotation limit.
-   - Spot availability (PMR priority then standard).
-4. Engine selects an available `ParkingSpot` and creates a `Reservation` record.
-5. Engine logs a simulated SMS confirmation.
-6. API returns the reservation details to the UI.
+   Student->>UI: Choisit une date et clique sur "Reserver"
+   UI->>API: POST /api/reservations { date }
+   API->>Auth: requireAuth(token)
+   Auth-->>API: user ou erreur
+
+   alt Token invalide
+      API-->>UI: 401 Non authentifie
+      UI-->>Student: message d'erreur
+   else Token valide
+      API->>Engine: createReservation(userId, date)
+      Engine->>DB: Charger user + vehicules
+      Engine->>DB: Verifier reservation active / penalty / fenetre / rotation
+
+      alt Regle metier bloquante
+         Engine-->>API: { success: false, error }
+         API-->>UI: 400 { error }
+         UI-->>Student: refus explicite
+      else Reservation possible
+         Engine->>DB: Selectionner place libre + creer reservation
+         Engine-->>API: { success: true, reservation }
+         API-->>UI: 201 { message, reservation }
+         UI-->>Student: confirmation + details place
+      end
+   end
+```
