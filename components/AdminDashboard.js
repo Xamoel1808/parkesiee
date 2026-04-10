@@ -17,7 +17,7 @@ export default function AdminDashboard() {
   // Closures state
   const [closures, setClosures] = useState([]);
   const [loadingClosures, setLoadingClosures] = useState(false);
-  const [closureForm, setClosureForm] = useState({ startDate: '', endDate: '', reason: '' });
+  const [closureForm, setClosureForm] = useState({ startDate: '', endDate: '', reason: '', notifyUsers: true });
   const [savingClosure, setSavingClosure] = useState(false);
 
   const todayStr = () => {
@@ -94,8 +94,14 @@ export default function AdminDashboard() {
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage({ type: 'success', text: data.message });
-        setClosureForm({ startDate: '', endDate: '', reason: '' });
+        let successMsg = data.message;
+        if (data.email?.sent) {
+          successMsg += ` 📧 ${data.email.sent} email(s) envoyé(s).`;
+        } else if (data.email?.error) {
+          successMsg += ` ⚠️ Erreur email : ${data.email.error}`;
+        }
+        setMessage({ type: 'success', text: successMsg });
+        setClosureForm({ startDate: '', endDate: '', reason: '', notifyUsers: true });
         loadClosures();
       } else {
         setMessage({ type: 'error', text: data.error });
@@ -372,6 +378,21 @@ export default function AdminDashboard() {
                   value={closureForm.reason}
                   onChange={e => setClosureForm({ ...closureForm, reason: e.target.value })}
                 />
+              </div>
+              <div style={{ margin: 0, gridColumn: 'span 2', display: 'flex', alignItems: 'center', gap: '0.6rem', paddingTop: '0.25rem' }}>
+                <input
+                  id="notify-users-checkbox"
+                  type="checkbox"
+                  checked={closureForm.notifyUsers}
+                  onChange={e => setClosureForm({ ...closureForm, notifyUsers: e.target.checked })}
+                  style={{ width: 16, height: 16, accentColor: 'var(--accent-blue)', cursor: 'pointer' }}
+                />
+                <label
+                  htmlFor="notify-users-checkbox"
+                  style={{ cursor: 'pointer', fontSize: '0.9rem', color: 'var(--text-secondary)', userSelect: 'none' }}
+                >
+                  📧 Notifier tous les étudiants par email
+                </label>
               </div>
             </div>
             <button

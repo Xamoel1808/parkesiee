@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireAuth } from '@/lib/auth';
+import { sendMail, buildClosureEmailHtml } from '@/lib/mailer';
 
 // GET /api/admin/closures — Liste toutes les fermetures
 export async function GET(request) {
@@ -15,14 +16,14 @@ export async function GET(request) {
   return NextResponse.json({ closures });
 }
 
-// POST /api/admin/closures — Créer une fermeture
+// POST /api/admin/closures — Créer une fermeture (+ email optionnel)
 export async function POST(request) {
   const auth = requireAuth(request);
   if (auth.error) return NextResponse.json({ error: auth.error }, { status: auth.status });
   if (auth.user.role !== 'ADMIN') return NextResponse.json({ error: 'Accès refusé.' }, { status: 403 });
 
   const body = await request.json();
-  const { startDate, endDate, reason } = body;
+  const { startDate, endDate, reason, notifyUsers } = body;
 
   if (!startDate || !endDate || !reason?.trim()) {
     return NextResponse.json({ error: 'Paramètres startDate, endDate et reason requis.' }, { status: 400 });
@@ -40,7 +41,38 @@ export async function POST(request) {
     data: { startDate, endDate, reason: reason.trim() },
   });
 
-  return NextResponse.json({ message: 'Fermeture planifiée avec succès.', closure }, { status: 201 });
+  // Envoi emails si demandé
+  let emailResult = null;
+  if (notifyUsers) {
+    try {
+      const users = await prisma.user.findMany({
+        where: { role: 'STUDENT' },
+        select: { email: true, name: true },
+      });
+
+      if (users.length > 0) {
+        const emails = users.map(u => u.email);
+        const html = buildClosureEmailHtml({ reason: reason.trim(), startDate, endDate });
+
+        await sendMail({
+          to: emails,
+          subject: `🔒 Fermeture du parking ESIEE-IT — ${reason.trim()}`,
+          html,
+        });
+
+        emailResult = { sent: users.length };
+      }
+    } catch (err) {
+      console.error('Erreur envoi email:', err);
+      emailResult = { error: err.message };
+    }
+  }
+
+  return NextResponse.json({
+    message: 'Fermeture planifiée avec succès.',
+    closure,
+    email: emailResult,
+  }, { status: 201 });
 }
 
 // DELETE /api/admin/closures — Supprimer une fermeture
