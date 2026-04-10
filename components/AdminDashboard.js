@@ -666,14 +666,14 @@ export default function AdminDashboard() {
                     <div>
                       <select 
                         className="form-input" 
-                        style={{ padding: '0.25rem 0.5rem', width: 'auto' }}
+                        style={{ padding: '0.25rem 0.5rem', width: 'auto', background: 'var(--bg-glass)', color: 'var(--text-primary)' }}
                         value={t.status}
                         onChange={(e) => handleTicketUpdate(t.id, e.target.value, t.adminResponse)}
                       >
-                        <option value="OPEN">Ouvert</option>
-                        <option value="IN_PROGRESS">En cours</option>
-                        <option value="RESOLVED">Résolu</option>
-                        <option value="CLOSED">Fermé</option>
+                        <option value="OPEN" style={{ background: '#1a1a1a', color: '#fff' }}>Ouvert</option>
+                        <option value="IN_PROGRESS" style={{ background: '#1a1a1a', color: '#fff' }}>En cours</option>
+                        <option value="RESOLVED" style={{ background: '#1a1a1a', color: '#fff' }}>Résolu</option>
+                        <option value="CLOSED" style={{ background: '#1a1a1a', color: '#fff' }}>Fermé</option>
                       </select>
                     </div>
                   </div>
