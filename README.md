@@ -3,6 +3,7 @@
 ParkESIEE est une application web de gestion de réservation de places de parking pour ESIEE-IT. Elle couvre l'inscription, la connexion, la réservation de places standards et PMR, les flux agent et admin, l'export ICS et la gestion des no-show.
 
 ## Documentation
+- [Cadrage produit](docs/cadrage-produit.md)
 - [Architecture et flux de données](docs/architecture.md)
 - [Contrat d'API](docs/api_contract.md)
 - [Modèle de domaine](docs/domain_model.md)
