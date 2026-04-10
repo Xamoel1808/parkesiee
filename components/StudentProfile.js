@@ -84,7 +84,7 @@ export default function StudentProfile() {
       </div>
 
       {message && (
-        <div className={`alert alert-${message.type}`}>
+        <div className={`alert alert-${message.type}`} role="status" aria-live="polite">
           <span className="alert-icon">{message.type === 'success' ? '✅' : '⚠️'}</span>
           <span>{message.text}</span>
         </div>
@@ -105,16 +105,18 @@ export default function StudentProfile() {
           {editing ? (
             <>
               <div className="form-group">
-                <label className="form-label">Nom complet</label>
+                <label className="form-label" htmlFor="profile-name">Nom complet</label>
                 <input
+                  id="profile-name"
                   className="form-input"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
               </div>
               <div className="form-group">
-                <label className="form-label">Téléphone</label>
+                <label className="form-label" htmlFor="profile-phone">Téléphone</label>
                 <input
+                  id="profile-phone"
                   className="form-input"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -191,9 +193,10 @@ export default function StudentProfile() {
 
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
             <div className="form-group" style={{ marginBottom: '0.5rem' }}>
-              <label className="form-label" style={{ fontSize: '0.9rem' }}>Ajouter une nouvelle plaque</label>
+              <label className="form-label" htmlFor="profile-new-plate" style={{ fontSize: '0.9rem' }}>Ajouter une nouvelle plaque</label>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 <input
+                  id="profile-new-plate"
                   className="form-input"
                   style={{ flex: 1 }}
                   placeholder="Ex: AB-123-CD"

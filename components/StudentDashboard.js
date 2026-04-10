@@ -124,7 +124,7 @@ export default function StudentDashboard() {
 
       {/* Message */}
       {message && (
-        <div className={`alert alert-${message.type}`}>
+        <div className={`alert alert-${message.type}`} role="status" aria-live="polite">
           <span className="alert-icon">{message.type === 'success' ? '✅' : '⚠️'}</span>
           <span>{message.text}</span>
         </div>

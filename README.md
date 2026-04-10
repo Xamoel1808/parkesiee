@@ -5,6 +5,9 @@ ParkESIEE est une application web de gestion de réservation de places de parkin
 ## Documentation
 - [Cadrage produit](docs/cadrage-produit.md)
 - [Demo data](docs/demo-data.md)
+- [UI spec](docs/ui-spec.md)
+- [Accessibility checks](docs/accessibility-checks.md)
+- [Edge cases](docs/edge-cases.md)
 - [Architecture et flux de données](docs/architecture.md)
 - [Contrat d'API](docs/api_contract.md)
 - [Modèle de domaine](docs/domain_model.md)

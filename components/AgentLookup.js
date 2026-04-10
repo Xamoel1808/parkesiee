@@ -78,7 +78,7 @@ export default function AgentLookup() {
       </div>
 
       {error && (
-        <div className="alert alert-error">
+        <div className="alert alert-error" role="alert" aria-live="assertive">
           <span className="alert-icon">⚠️</span>
           <span>{error}</span>
         </div>

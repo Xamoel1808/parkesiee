@@ -59,7 +59,7 @@ export default function RegisterPage({ onSwitch, onBack }) {
         </div>
 
         {error && (
-          <div className="alert alert-error">
+          <div className="alert alert-error" role="alert" aria-live="assertive">
             <span className="alert-icon">⚠️</span>
             <span>{error}</span>
           </div>

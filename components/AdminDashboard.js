@@ -98,7 +98,7 @@ export default function AdminDashboard() {
       </div>
 
       {message && (
-        <div className={`alert alert-${message.type}`}>
+        <div className={`alert alert-${message.type}`} role="status" aria-live="polite">
           <span className="alert-icon">{message.type === 'success' ? '✅' : '⚠️'}</span>
           <span>{message.text}</span>
         </div>
@@ -146,8 +146,9 @@ export default function AdminDashboard() {
           {/* Date picker + stats */}
           <div className="card" style={{ marginBottom: '1.25rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-              <label className="form-label" style={{ margin: 0 }}>Date :</label>
+              <label className="form-label" htmlFor="admin-date" style={{ margin: 0 }}>Date :</label>
               <input
+                id="admin-date"
                 type="date"
                 className="form-input"
                 style={{ maxWidth: 200 }}
