@@ -34,6 +34,12 @@ export default function Navbar({ currentPage, onNavigate }) {
             >
               👤 Profil
             </button>
+            <button
+              className={`nav-link ${currentPage === 'reglement' ? 'active' : ''}`}
+              onClick={() => onNavigate('reglement')}
+            >
+              📜 Règlement
+            </button>
           </>
         )}
 
@@ -57,6 +63,12 @@ export default function Navbar({ currentPage, onNavigate }) {
             >
               👤 Profil
             </button>
+            <button
+              className={`nav-link ${currentPage === 'reglement' ? 'active' : ''}`}
+              onClick={() => onNavigate('reglement')}
+            >
+              📜 Règlement
+            </button>
           </>
         )}
 
@@ -73,6 +85,12 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={() => onNavigate('profile')}
             >
               👤 Profil
+            </button>
+            <button
+              className={`nav-link ${currentPage === 'reglement' ? 'active' : ''}`}
+              onClick={() => onNavigate('reglement')}
+            >
+              📜 Règlement
             </button>
           </>
         )}
