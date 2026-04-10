@@ -4,6 +4,7 @@ ParkESIEE est une application web de gestion de réservation de places de parkin
 
 ## Documentation
 - [Cadrage produit](docs/cadrage-produit.md)
+- [Demo data](docs/demo-data.md)
 - [Architecture et flux de données](docs/architecture.md)
 - [Contrat d'API](docs/api_contract.md)
 - [Modèle de domaine](docs/domain_model.md)
@@ -46,6 +47,7 @@ Créer un fichier `.env` à la racine du projet avec :
 ```env
 DATABASE_URL="file:./dev.db"
 ```
+`npm run db:setup` efface et reconstruit ensuite les donnees locales de demonstration.
 
 ### 3. Initialiser la base de données
 ```bash
@@ -61,7 +63,8 @@ L'application est accessible sur `http://localhost:3000`.
 ## Comptes de démonstration
 - Admin : `admin@esiee-it.fr` / `admin123`
 - Agent : `agent@esiee-it.fr` / `agent123`
-- Les étudiants peuvent créer leur compte depuis l'interface d'inscription.
+- Student demo accounts: `leo@esiee-it.fr` / `leo123`, `camille@esiee-it.fr` / `camille123`, `sarah@esiee-it.fr` / `sarah123`, `nadia@esiee-it.fr` / `nadia123`, `julien@esiee-it.fr` / `noshow123`
+- Les étudiants peuvent aussi créer leur compte depuis l'interface d'inscription.
 
 ## Exploitation
 - Prisma Studio : `npm run db:studio`
