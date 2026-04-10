@@ -17,9 +17,15 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Une demande PMR est déjà en cours de traitement.' }, { status: 400 });
   }
 
+  const { pmrProof } = await request.json();
+
+  if (!pmrProof) {
+    return NextResponse.json({ error: 'Un justificatif (photo ou PDF) est requis.' }, { status: 400 });
+  }
+
   await prisma.user.update({
     where: { id: auth.user.userId },
-    data: { pmrRequested: true },
+    data: { pmrRequested: true, pmrProof },
   });
 
   return NextResponse.json({ message: 'Demande de statut PMR soumise. Un administrateur va la traiter.' });

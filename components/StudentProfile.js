@@ -12,6 +12,8 @@ export default function StudentProfile() {
   const [requestingPmr, setRequestingPmr] = useState(false);
   const [addingVehicle, setAddingVehicle] = useState(false);
   const [newPlate, setNewPlate] = useState('');
+  const [pmrFile, setPmrFile] = useState(null);
+  const [pmrFileError, setPmrFileError] = useState(null);
 
   const handleSave = async () => {
     setSaving(true);
@@ -36,19 +38,39 @@ export default function StudentProfile() {
   };
 
   const handlePmrRequest = async () => {
+    if (!pmrFile) {
+      setPmrFileError('Veuillez sélectionner un fichier.');
+      return;
+    }
     setRequestingPmr(true);
     setMessage(null);
+    setPmrFileError(null);
     try {
-      const res = await apiFetch('/api/users/pmr-request', { method: 'POST' });
+      // Convert file to Base64
+      const reader = new FileReader();
+      const base64Promise = new Promise((resolve, reject) => {
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(pmrFile);
+      });
+
+      const base64File = await base64Promise;
+
+      const res = await apiFetch('/api/users/pmr-request', { 
+        method: 'POST',
+        body: JSON.stringify({ pmrProof: base64File })
+      });
       const data = await res.json();
       if (res.ok) {
         setMessage({ type: 'success', text: data.message });
+        setPmrFile(null);
         refreshUser();
       } else {
         setMessage({ type: 'error', text: data.error });
       }
-    } catch {
-      setMessage({ type: 'error', text: 'Erreur de connexion.' });
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: 'error', text: 'Erreur de connexion ou de lecture du fichier.' });
     }
     setRequestingPmr(false);
   };
@@ -256,12 +278,45 @@ export default function StudentProfile() {
                 Si vous êtes titulaire d'une carte de mobilité inclusion (CMI) ou d'une carte européenne de
                 stationnement, vous pouvez soumettre une demande pour bénéficier du statut PMR.
               </p>
+              
+              <div className="form-group" style={{ maxWidth: '400px', marginBottom: '1.25rem' }}>
+                <label className="form-label">Justificatif (Photo ou PDF)</label>
+                <div style={{ 
+                  border: '2px dashed var(--border-color)', 
+                  padding: '1.5rem', 
+                  borderRadius: 'var(--radius-md)',
+                  textAlign: 'center',
+                  background: 'rgba(255,255,255,0.02)',
+                  position: 'relative'
+                }}>
+                  <input
+                    type="file"
+                    accept="image/*,.pdf"
+                    style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer' }}
+                    onChange={(e) => setPmrFile(e.target.files[0])}
+                  />
+                  <div style={{ color: 'var(--text-muted)' }}>
+                    {pmrFile ? (
+                      <div style={{ color: 'var(--accent-blue)', fontWeight: 600 }}>
+                        📄 {pmrFile.name}
+                      </div>
+                    ) : (
+                      <>
+                        <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>📁</div>
+                        Cliquez ou glissez un fichier ici
+                      </>
+                    )}
+                  </div>
+                </div>
+                {pmrFileError && <div style={{ color: 'var(--accent-rose)', fontSize: '0.8rem', marginTop: '0.5rem' }}>{pmrFileError}</div>}
+              </div>
+
               <button
                 className="btn btn-primary"
                 onClick={handlePmrRequest}
-                disabled={requestingPmr}
+                disabled={requestingPmr || !pmrFile}
               >
-                {requestingPmr ? <span className="spinner"></span> : '♿ Déclarer mon statut PMR'}
+                {requestingPmr ? <span className="spinner"></span> : '♿ Envoyer ma demande PMR'}
               </button>
             </div>
           )}

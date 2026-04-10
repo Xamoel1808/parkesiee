@@ -28,6 +28,7 @@ export async function GET(request) {
       isPmr: u.isPmr,
       pmrRequested: u.pmrRequested,
       pmrValidatedAt: u.pmrValidatedAt,
+      pmrProof: u.pmrProof,
       penaltyUntil: u.penaltyUntil,
       vehicles: u.vehicles.map((v) => v.licensePlate),
       createdAt: u.createdAt,

@@ -29,6 +29,7 @@ export default function AdminDashboard() {
   const [tickets, setTickets] = useState([]);
   const [loadingTickets, setLoadingTickets] = useState(false);
   const [ticketResponse, setTicketResponse] = useState({}); // { ticketId: '...' }
+  const [viewingProof, setViewingProof] = useState(null); // { name: '...', proof: '...' }
 
   const todayStr = () => {
     const d = new Date();
@@ -409,7 +410,16 @@ export default function AdminDashboard() {
                       {u.email} · {u.phone} · Plaque: {u.vehicles.join(', ')}
                     </div>
                   </div>
-                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                   <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                    {u.pmrProof && (
+                      <button 
+                        className="btn btn-outline btn-sm" 
+                        onClick={() => setViewingProof({ name: u.name, proof: u.pmrProof })}
+                        style={{ borderColor: 'var(--accent-blue)', color: 'var(--accent-blue)' }}
+                      >
+                        📄 Justificatif
+                      </button>
+                    )}
                     <button className="btn btn-success btn-sm" onClick={() => handleUserAction(u.id, 'approve', u.name)}>
                       ✓ Approuver
                     </button>
@@ -713,7 +723,42 @@ export default function AdminDashboard() {
             </div>
           )}
         </div>
-      )}
-    </div>
-  );
-}
+       )}
+ 
+       {/* Proof Viewer Modal */}
+       {viewingProof && (
+         <div style={{
+           position: 'fixed', inset: 0, zIndex: 1000,
+           background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)',
+           display: 'flex', alignItems: 'center', justifyContent: 'center',
+           padding: '2rem'
+         }}>
+           <div style={{
+             background: 'var(--bg-main)', border: '1px solid var(--border-color)',
+             borderRadius: 'var(--radius-lg)', width: '100%', maxWidth: '900px',
+             maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column'
+           }}>
+             <div className="card-header" style={{ borderBottom: '1px solid var(--border-color)', padding: '1rem 1.5rem' }}>
+               <div className="card-title">Justificatif PMR — {viewingProof.name}</div>
+               <button className="btn btn-outline btn-sm" onClick={() => setViewingProof(null)}>Fermer</button>
+             </div>
+             <div style={{ flex: 1, overflow: 'auto', padding: '1.5rem', textAlign: 'center' }}>
+               {viewingProof.proof.startsWith('data:application/pdf') ? (
+                 <iframe 
+                   src={viewingProof.proof} 
+                   style={{ width: '100%', height: '600px', border: 'none', borderRadius: 'var(--radius-sm)' }}
+                 ></iframe>
+               ) : (
+                 <img 
+                   src={viewingProof.proof} 
+                   alt="Justificatif" 
+                   style={{ maxWidth: '100%', height: 'auto', borderRadius: 'var(--radius-sm)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }} 
+                 />
+               )}
+             </div>
+           </div>
+         </div>
+       )}
+     </div>
+   );
+ }
