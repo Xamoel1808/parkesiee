@@ -40,6 +40,12 @@ export default function Navbar({ currentPage, onNavigate }) {
             >
               📜 Règlement
             </button>
+            <button
+              className={`nav-link ${currentPage === 'tickets' ? 'active' : ''}`}
+              onClick={() => onNavigate('tickets')}
+            >
+              🎫 Réclamations
+            </button>
           </>
         )}
 
@@ -68,6 +74,12 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={() => onNavigate('reglement')}
             >
               📜 Règlement
+            </button>
+            <button
+              className={`nav-link ${currentPage === 'tickets' ? 'active' : ''}`}
+              onClick={() => onNavigate('tickets')}
+            >
+              🎫 Réclamations
             </button>
           </>
         )}

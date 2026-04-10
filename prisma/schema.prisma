@@ -26,6 +26,7 @@ model User {
 
   vehicles     Vehicle[]
   reservations Reservation[]
+  tickets      Ticket[]
 }
 
 model Vehicle {
@@ -69,4 +70,19 @@ model Reservation {
 
   @@index([userId, date])
   @@index([date, status])
+}
+
+model Ticket {
+  id            String   @id @default(cuid())
+  userId        String
+  subject       String
+  message       String
+  status        String   @default("OPEN") // OPEN, IN_PROGRESS, RESOLVED, CLOSED
+  adminResponse String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }

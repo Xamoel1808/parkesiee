@@ -25,6 +25,11 @@ export default function AdminDashboard() {
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [searchUser, setSearchUser] = useState('');
 
+  // Tickets state
+  const [tickets, setTickets] = useState([]);
+  const [loadingTickets, setLoadingTickets] = useState(false);
+  const [ticketResponse, setTicketResponse] = useState({}); // { ticketId: '...' }
+
   const todayStr = () => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -37,6 +42,7 @@ export default function AdminDashboard() {
     loadPmrRequests();
     loadClosures();
     loadAllUsers();
+    loadTickets();
   }, []);
 
   const loadReservations = async (d) => {
@@ -70,13 +76,19 @@ export default function AdminDashboard() {
     setLoadingClosures(false);
   };
 
-  const loadAllUsers = async () => {
-    setLoadingUsers(true);
-    try {
-      const res = await apiFetch('/api/admin/users');
-      if (res.ok) { const data = await res.json(); setAllUsers(data.users); }
-    } catch {}
     setLoadingUsers(false);
+  };
+
+  const loadTickets = async () => {
+    setLoadingTickets(true);
+    try {
+      const res = await apiFetch('/api/admin/tickets');
+      if (res.ok) {
+        const data = await res.json();
+        setTickets(data.tickets);
+      }
+    } catch {}
+    setLoadingTickets(false);
   };
 
   const handleUserAction = async (userId, action, userName) => {
@@ -143,6 +155,24 @@ export default function AdminDashboard() {
       const data = await res.json();
       if (res.ok) { setMessage({ type: 'success', text: data.message }); loadClosures(); }
       else setMessage({ type: 'error', text: data.error });
+    } catch {
+      setMessage({ type: 'error', text: 'Erreur de connexion.' });
+    }
+  };
+
+  const handleTicketUpdate = async (id, status, responseText) => {
+    try {
+      const res = await apiFetch('/api/admin/tickets', {
+        method: 'PUT',
+        body: JSON.stringify({ id, status, adminResponse: responseText }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage({ type: 'success', text: 'Réclamation mise à jour.' });
+        loadTickets();
+      } else {
+        setMessage({ type: 'error', text: data.error });
+      }
     } catch {
       setMessage({ type: 'error', text: 'Erreur de connexion.' });
     }
@@ -215,6 +245,24 @@ export default function AdminDashboard() {
           onClick={() => setTab('users')}
         >
           👥 Tous les Étudiants
+        </button>
+        <button
+          className={`btn ${tab === 'tickets' ? 'btn-primary' : 'btn-outline'}`}
+          onClick={() => setTab('tickets')}
+          style={{ position: 'relative' }}
+        >
+          🎫 Réclamations
+          {tickets.filter(t => t.status === 'OPEN').length > 0 && (
+            <span style={{
+              position: 'absolute', top: -6, right: -6,
+              width: 20, height: 20, borderRadius: '50%',
+              background: 'var(--accent-rose)', color: 'white',
+              fontSize: '0.7rem', fontWeight: 700,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              {tickets.filter(t => t.status === 'OPEN').length}
+            </span>
+          )}
         </button>
       </div>
 
@@ -578,6 +626,87 @@ export default function AdminDashboard() {
             )}
           </div>
         </>
+      )}
+
+      {/* Tickets tab */}
+      {tab === 'tickets' && (
+        <div className="card">
+          <div className="card-header">
+            <div className="card-title">🎫 Réclamations des étudiants</div>
+          </div>
+          {loadingTickets ? (
+            <div style={{ textAlign: 'center', padding: '2rem' }}><div className="spinner"></div></div>
+          ) : tickets.length === 0 ? (
+            <div className="empty-state">
+              <p>Aucune réclamation.</p>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {tickets.map((t) => (
+                <div key={t.id} style={{
+                  padding: '1.25rem',
+                  background: 'var(--bg-glass)',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border-color)',
+                  opacity: t.status === 'CLOSED' ? 0.7 : 1
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>{t.subject}</div>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        De: <strong>{t.user.name}</strong> ({t.user.email}) · {new Date(t.createdAt).toLocaleDateString()}
+                      </div>
+                    </div>
+                    <div>
+                      <select 
+                        className="form-input" 
+                        style={{ padding: '0.25rem 0.5rem', width: 'auto' }}
+                        value={t.status}
+                        onChange={(e) => handleTicketUpdate(t.id, e.target.value, t.adminResponse)}
+                      >
+                        <option value="OPEN">Ouvert</option>
+                        <option value="IN_PROGRESS">En cours</option>
+                        <option value="RESOLVED">Résolu</option>
+                        <option value="CLOSED">Fermé</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div style={{ 
+                    padding: '1rem', 
+                    background: 'rgba(255,255,255,0.03)', 
+                    borderRadius: 'var(--radius-sm)',
+                    marginBottom: '1rem',
+                    whiteSpace: 'pre-wrap',
+                    fontSize: '0.95rem'
+                  }}>
+                    {t.message}
+                  </div>
+
+                  <div className="form-group" style={{ margin: 0 }}>
+                    <label className="form-label" style={{ fontSize: '0.85rem' }}>Votre réponse :</label>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <textarea
+                        className="form-input"
+                        style={{ minHeight: '60px', borderRadius: 'var(--radius-sm)', fontSize: '0.9rem' }}
+                        placeholder="Tapez votre réponse ici..."
+                        value={ticketResponse[t.id] ?? t.adminResponse ?? ''}
+                        onChange={(e) => setTicketResponse({ ...ticketResponse, [t.id]: e.target.value })}
+                      ></textarea>
+                      <button 
+                        className="btn btn-primary" 
+                        style={{ height: 'fit-content', alignSelf: 'flex-end' }}
+                        onClick={() => handleTicketUpdate(t.id, t.status, ticketResponse[t.id] || t.adminResponse)}
+                      >
+                        💾
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

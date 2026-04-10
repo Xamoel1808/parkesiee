@@ -11,6 +11,7 @@ import AdminDashboard from './AdminDashboard';
 import AgentLookup from './AgentLookup';
 import Navbar from './Navbar';
 import ReglementPage from './ReglementPage';
+import StudentTickets from './StudentTickets';
 
 export default function AppRouter() {
   const { user, loading } = useAuth();
@@ -60,6 +61,7 @@ export default function AppRouter() {
         case 'lookup': return <AgentLookup />;
         case 'profile': return <StudentProfile />;
         case 'reglement': return <ReglementPage />;
+        case 'tickets': return <StudentTickets />;
         default: return <AdminDashboard />;
       }
     }
@@ -74,6 +76,7 @@ export default function AppRouter() {
     switch (page) {
       case 'profile': return <StudentProfile />;
       case 'reglement': return <ReglementPage />;
+      case 'tickets': return <StudentTickets />;
       default: return <StudentDashboard />;
     }
   };
