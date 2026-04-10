@@ -11,6 +11,7 @@ ParkESIEE est une application web de gestion de réservation de places de parkin
 - [Choix techniques](docs/technical_choices.md)
 - [Stratégie Git](docs/git_strategy.md)
 - [Journal des décisions](docs/decisions/)
+- [Règlement Intérieur (Pénalités)](docs/reglement.md)
 - Swagger UI disponible sur `/api-docs`
 
 ## Stack technique
